@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
 
 from decimal import *
 
@@ -11,10 +10,9 @@ def intro():
     print ("This your very own NBA Greatest of All Time (G.O.A.T) Calculator!")
     print ("Here you will be able to customize and create your customized statistical G.O.A.T")
     print ("\nInstructions:")
-    print ("1) Input a number from 1 to 41 in order to choose statistical category.")
+    print ("1) Input a number from 1 to 39 in order to choose statistical category.")
     print ("2) Input a weight from 1 to 10 indicating indicating importance for G.O.A.T calculation")
-    print ("3) When finished enter 42 to calculate!") 
-    
+    print ("3) When finished enter 40 to calculate!") 
     print ("\nUNLESS SPECIFIED, ASSUME ALL CATEGORIES ARE PER GAME\n")
     print ("REGULAR STATS:")
     print (" 1. Total Career Games Played")  
@@ -43,46 +41,40 @@ def intro():
     print ("22. " + "\033[1m" + "Free Throw Percentage" + "\033[0m")
     print ("23. " + "\033[1m" + "Trueshooting Percentage" + "\033[0m")
     print ("    - A measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.")
-    print ("24. " + "\033[1m" + " Player Efficiency Rating (PER)" + "\033[0m")
-    print ("    - A measure of per-minute production standardized such that the league average is 15.")
-    print ("25. " + "\033[1m" + " 3-Point Attempt Rate" + "\033[0m")
+    print ("24. " + "\033[1m" + " 3-Point Attempt Rate" + "\033[0m")
     print ("    - Percentage of FG Attempts from 3-Point Range")
-    print ("26. " + "\033[1m" +  "Free Throw Attempt Rate" + "\033[0m")
+    print ("25. " + "\033[1m" +  "Free Throw Attempt Rate" + "\033[0m")
     print ("    - Number of FT Attempts Per FG Attempt")
-    print ("27. " + "\033[1m" +  "Offensive Rebound Percentage" + "\033[0m")
+    print ("26. " + "\033[1m" +  "Offensive Rebound Percentage" + "\033[0m")
     print ("    - An estimate of the percentage of available offensive rebounds a player grabbed while on the floor.")
-    print ("28. " + "\033[1m" +  "Defensive Rebound Percentage" + "\033[0m")
+    print ("27. " + "\033[1m" +  "Defensive Rebound Percentage" + "\033[0m")
     print ("    - An estimate of the percentage of available defensive rebounds a player grabbed while on the floor.")
-    print ("29. " + "\033[1m" +  "Total Rebound Percentage" + "\033[0m")
-    print ("    - An estimate of the percentage of available rebounds a player grabbed while on the floor.")
-    print ("30. " + "\033[1m" +  "Assist Percentage" + "\033[0m")
+    print ("28. " + "\033[1m" +  "Assist Percentage" + "\033[0m")
     print ("    - An estimate of the percentage of teammate field goals a player assisted while on the floor.")
-    print ("31. " + "\033[1m" +  "Steal Percentage" + "\033[0m")
+    print ("29. " + "\033[1m" +  "Steal Percentage" + "\033[0m")
     print ("    - An estimate of the percentage of opponent possessions that end with a steal while on the floor.")
-    print ("32. " + "\033[1m" + "Block Percentage" + "\033[0m")
+    print ("30. " + "\033[1m" + "Block Percentage" + "\033[0m")
     print ("    - An estimate of the percentage of opponent two-point field goal attempts blocked by while on the floor.")  
-    print ("33. " + "\033[1m" + "Offensive Rating" + "\033[0m")
+    print ("31. " + "\033[1m" + "Offensive Rating" + "\033[0m")
     print ("    - An estimate of points produced (players) or scored (teams) per 100 possessions")
-    print ("34. " + "\033[1m" + "Defensive Rating" + "\033[0m")
+    print ("32. " + "\033[1m" + "Defensive Rating" + "\033[0m")
     print ("    - An estimate of points allowed per 100 possessions")
-    print ("35. " + "\033[1m" + "Offensive Win Shares" + "\033[0m")
+    print ("33. " + "\033[1m" + "Offensive Win Shares" + "\033[0m")
     print ("    - An estimate of the number of wins contributed by a player due to his offense.") 
-    print ("36. " + "\033[1m" + "Defensive Win Shares" + "\033[0m")
+    print ("34. " + "\033[1m" + "Defensive Win Shares" + "\033[0m")
     print ("    - An estimate of the number of wins contributed by a player due to his defense.")
-    print ("37. " + "\033[1m" + "Win Shares Per 48 Minutes" + "\033[0m")
+    print ("35. " + "\033[1m" + "Win Shares Per 48 Minutes" + "\033[0m")
     print ("    - An estimate of the number of wins contributed by a player per 48 minutes (league average is approximately .100)")
-    print ("38. " + "\033[1m" + "Offensive Box Plus/Minus" + "\033[0m")
+    print ("36. " + "\033[1m" + "Offensive Box Plus/Minus" + "\033[0m")
     print ("    - A box score estimate of the offensive points per 100 possessions a player contributed above a league-average player.")
-    print ("39. " + "\033[1m" + "Defensive Box Plus/Minus" + "\033[0m")
+    print ("37. " + "\033[1m" + "Defensive Box Plus/Minus" + "\033[0m")
     print ("    - A box score estimate of the defensive points per 100 possessions a player contributed above a league-average player.") 
-    print ("40. " + "\033[1m" + "Box Plus/Minus" + "\033[0m")
+    print ("38. " + "\033[1m" + "Box Plus/Minus" + "\033[0m")
     print ("    - A box score estimate of the points per 100 possessions a player contributed above a league-average player.")
-    print ("41. " + "\033[1m" + "Value Over Replacement Player (VORP)" + "\033[0m")
+    print ("39. " + "\033[1m" + "Value Over Replacement Player (VORP)" + "\033[0m")
     print ("    - An estimate of the points per 100 possessions that a player contributed above a replacement-level (-2.0) player")
-    print ("42. " + "\033[1m" + "CALCULATE!" + "\033[0m")
+    print ("40. " + "\033[1m" + "CALCULATE!" + "\033[0m")
 
-
-# In[2]:
 
 
 # this is where the user will choose which stats they want to evaluate 
@@ -112,32 +104,27 @@ cat_dict = {
     21 : "efg_pct", 
     22 : "ft_pct", 
     23 : "trueshooting_pct", 
-    24 : "per", 
-    25 : "three_par",
-    26 : "ftr", 
-    27 : "orb_pct", 
-    28 : "drb_pct", 
-    29 : "trb_pct", 
-    30 : "ast_pct", 
-    31 : "stl_pct", 
-    32 : "blk_pct", 
-    33 : "ortg", 
-    34 : "drtg", 
-    35 : "ows", 
-    36 : "dws", 
-    37 : "ws", 
-    38 : "obpm", 
-    39 : "dbpm",  
-    40 : "bpm", 
-    41 : "vorp" 
+    24 : "three_par",
+    25 : "ftr", 
+    26 : "orb_pct", 
+    27 : "drb_pct",  
+    28 : "ast_pct", 
+    29 : "stl_pct", 
+    30 : "blk_pct", 
+    31 : "ortg", 
+    32 : "drtg", 
+    33 : "ows", 
+    34 : "dws", 
+    35 : "ws", 
+    36 : "obpm", 
+    37 : "dbpm",  
+    38 : "bpm", 
+    39 : "vorp" 
 }
 
 # dictionary for storing values from 1-10 that user inputs for each category weight
 weight_dict = {
 }
-
-
-# In[3]:
 
 
 def user_input():
@@ -147,12 +134,12 @@ def user_input():
     cat_num = ""
     cat_weight = ""
 
-    while cat_num != 42:
+    while cat_num != 40:
         try:
-            cat_num = int(input("\nEnter a number from 1 to 41 to select statistical category: "))
-            if cat_num < 0 or cat_num > 42:
+            cat_num = int(input("\nEnter a number from 1 to 39 to select statistical category: "))
+            if cat_num < 0 or cat_num > 40:
                 raise ValueError 
-            elif cat_num == 42:
+            elif cat_num == 40:
                 print ("\nCalculations Complete!\n")
                 break
         except ValueError:
@@ -174,10 +161,6 @@ def user_input():
     
     
 
-
-# In[4]:
-
-
 # method for extracting weight dict values into list
 def calculation():
     values_weight_dict = list(weight_dict.values())
@@ -192,28 +175,17 @@ def calculation():
 
     cur = conn.cursor()
 
-    cur.execute('SELECT {} FROM all_stats'.format(", ".join(weight_dict)))
+    cur.execute('SELECT player, {} FROM all_stats'.format(", ".join(weight_dict)))
 
     from decimal import Decimal
 
     players = cur.fetchall()
 
-    cur.close()
-
-    #sql query to import names of players
-
-    import psycopg2 as pg2
-
-    conn = pg2.connect(database = 'NBA GOAT Project', user = 'postgres', password = 'thebeatles')
-
-    cur = conn.cursor()
-
-    cur.execute('''SELECT player FROM all_stats''')
-
-    player_names = [r[0] for r in cur.fetchall()]
+    player_list = []
+    for row in players:
+        player_list.append({'name': row[0], 'stats': row[1:]})
 
     cur.close()
-    
 
     # finding min max
 
@@ -228,55 +200,47 @@ def calculation():
 
 
     #inputting min and max values into zeroed arrays
-    for person in players:
+    for person in player_list:
         index = 0
         while (index < list_size):
-            if (person[index] != None):
-                if (person[index] < min_val_array[index]):
-                    min_val_array[index] = person[index]
-                if (person[index] > max_val_array[index]):
-                    max_val_array[index] = person[index]
+            cur_stat = person['stats'][index]
+            if (cur_stat != None):
+                if (cur_stat < min_val_array[index]):
+                    min_val_array[index] = cur_stat
+                if (cur_stat > max_val_array[index]):
+                    max_val_array[index] = cur_stat
             index += 1
 
-    calculated_values = {}
-
-    count = 0
-    for person in players:
+    for person in player_list:
         index_3 = 0 
         calculated_player = []
         while (index_3 < list_size):
-            if (person[index_3] != None):
+            if (person['stats'][index_3] != None):
                 # (x - min)/(max - min)
-                calced_result =((person[index_3] - min_val_array[index_3])/(max_val_array[index_3] - min_val_array[index_3]))*(values_weight_dict[index_3])
-                calced_result = round(calced_result, 3) 
+                calced_result =((person['stats'][index_3] - min_val_array[index_3])/(max_val_array[index_3] - min_val_array[index_3]))*(values_weight_dict[index_3])
+                calced_result = round(calced_result, 3)
                 calculated_player.append(calced_result)
             else:
                 calculated_player.append(None)
             index_3 += 1
 
-    #summing up calculated weights                            
+        #summing up calculated weights                            
         sum_calculated_player = 0 
         for num in calculated_player:
             if (num != None):
                 sum_calculated_player = Decimal(sum_calculated_player) + num
 
-    #assigning name to each calculated weight
-        calculated_values[player_names[count]] = sum_calculated_player
+        #assigning name to each calculated weight
+        person['final'] = sum_calculated_player
+        
 
-        count += 1
-
-    sorted_values = sorted(calculated_values.items(), key=lambda x: x[1], reverse=True) 
-
-
+    sorted_values = sorted(player_list, key=lambda x: x['final'], reverse=True) 
 
     rank = 1
-    for val in sorted_values:
-        print(str(rank) + ". " + str(val[0]) + ":      " + str(val[1]))
+    for i in range(15):
+        row = sorted_values[i]
+        print(str(rank) + ". " + str(row['name']) + ":      " + str(row['final']) + " " +  str(row['stats'])) 
         rank += 1
-    
-
-
-# In[5]:
 
 
 intro()
