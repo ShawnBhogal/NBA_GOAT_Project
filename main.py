@@ -236,10 +236,11 @@ def calculation():
 
     sorted_values = sorted(player_list, key=lambda x: x['final'], reverse=True) 
 
+
     rank = 1
-    for i in range(15):
+    for i in range(50):
         row = sorted_values[i]
-        print(str(rank) + ". " + str(row['name']) + ":      " + str(row['final']) + " " +  str(row['stats'])) 
+        print(str(rank) + ". " + str(row['name']) + ":      " + str(row['final']) + "      " +  str((row['stats']))) 
         rank += 1
 
 
