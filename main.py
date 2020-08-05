@@ -227,7 +227,7 @@ def calculation():
     for i in range(50):
         row = sorted_values[i]
         stats = row['stats']
-        print(str(rank) + ". " + str(row['name']) + ":\t" + str(row['final']) + "\t" +  ', '.join(str(x) for x in stats)) 
+        print(str(rank) + ". " + str(row['name']) + ":\t" + str(row['final']) + "\t" +  ' '.join(str(x) for x in stats)) 
         rank += 1
 
 if __name__ =='__main__':
