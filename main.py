@@ -1,11 +1,59 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
+# import relevant libraries/frameworks
 from decimal import *
+import psycopg2 as pg2
+
+# dictionary for storing values from 1-10 that user inputs for each category weight
+weight_dict = {
+}
+
+# this is where the user will choose which stats they want to evaluate 
+# user will also be prompted to input a number from 1 to 10 as weight for the importance of each stat
+cat_dict = {
+     1 : "games_played", 
+     2 : "mp",
+     3 : "fg" ,
+     4 : "fga", 
+     5 : "two_p", 
+     6 : "two_pa",
+     7 : "three_p", 
+     8 : "three_pa",
+     9 : "ft", 
+    10 : "fta",
+    11 : "orb", 
+    12 : "drb", 
+    13 : "trb", 
+    14 : "ast", 
+    15 : "stl",
+    16 : "blk", 
+    17 : "pts", 
+    18 : "fg_pct", 
+    19 : "two_p_pct", 
+    20 : "three_p_pct", 
+    21 : "efg_pct", 
+    22 : "ft_pct", 
+    23 : "trueshooting_pct", 
+    24 : "three_par",
+    25 : "ftr", 
+    26 : "orb_pct", 
+    27 : "drb_pct",  
+    28 : "ast_pct", 
+    29 : "stl_pct", 
+    30 : "blk_pct", 
+    31 : "ortg", 
+    32 : "drtg", 
+    33 : "ows", 
+    34 : "dws", 
+    35 : "ws", 
+    36 : "obpm", 
+    37 : "dbpm",  
+    38 : "bpm", 
+    39 : "vorp" 
+}
 
 def intro():
-
     print ("Welcome!\n")
     print ("This your very own NBA Greatest of All Time (G.O.A.T) Calculator!")
     print ("Here you will be able to customize and create your customized statistical G.O.A.T")
@@ -75,61 +123,7 @@ def intro():
     print ("    - An estimate of the points per 100 possessions that a player contributed above a replacement-level (-2.0) player")
     print ("40. " + "\033[1m" + "CALCULATE!" + "\033[0m")
 
-
-
-# this is where the user will choose which stats they want to evaluate 
-# user will also be prompted to input a number from 1 to 10 as weight for the importance of each stat
-
-cat_dict = {
-     1 : "games_played", 
-     2 : "mp",
-     3 : "fg" ,
-     4 : "fga", 
-     5 : "two_p", 
-     6 : "two_pa",
-     7 : "three_p", 
-     8 : "three_pa",
-     9 : "ft", 
-    10 : "fta",
-    11 : "orb", 
-    12 : "drb", 
-    13 : "trb", 
-    14 : "ast", 
-    15 : "stl",
-    16 : "blk", 
-    17 : "pts", 
-    18 : "fg_pct", 
-    19 : "two_p_pct", 
-    20 : "three_p_pct", 
-    21 : "efg_pct", 
-    22 : "ft_pct", 
-    23 : "trueshooting_pct", 
-    24 : "three_par",
-    25 : "ftr", 
-    26 : "orb_pct", 
-    27 : "drb_pct",  
-    28 : "ast_pct", 
-    29 : "stl_pct", 
-    30 : "blk_pct", 
-    31 : "ortg", 
-    32 : "drtg", 
-    33 : "ows", 
-    34 : "dws", 
-    35 : "ws", 
-    36 : "obpm", 
-    37 : "dbpm",  
-    38 : "bpm", 
-    39 : "vorp" 
-}
-
-# dictionary for storing values from 1-10 that user inputs for each category weight
-weight_dict = {
-}
-
-
 def user_input():
-    
-
     #user number input to select category
     cat_num = ""
     cat_weight = ""
@@ -159,7 +153,6 @@ def user_input():
                     print(weight_dict)
                     break
     
-    
 
 # method for extracting weight dict values into list
 def calculation():
@@ -168,16 +161,11 @@ def calculation():
     list_size = len(values_weight_dict)
 
     #sql query to import stats from category user chooses
-
-    import psycopg2 as pg2
-
     conn = pg2.connect(database = 'NBA GOAT Project', user = 'postgres', password = 'thebeatles')
-
+    # conn = pg2.connect(database = 'postgres', user = 'postgres', password = 'pragath1')
     cur = conn.cursor()
 
     cur.execute('SELECT player, {} FROM all_stats'.format(", ".join(weight_dict)))
-
-    from decimal import Decimal
 
     players = cur.fetchall()
 
@@ -228,23 +216,21 @@ def calculation():
         sum_calculated_player = 0 
         for num in calculated_player:
             if (num != None):
-                sum_calculated_player = Decimal(sum_calculated_player) + num
+                sum_calculated_player = sum_calculated_player + num
 
         #assigning name to each calculated weight
         person['final'] = sum_calculated_player
-        
 
     sorted_values = sorted(player_list, key=lambda x: x['final'], reverse=True) 
-
 
     rank = 1
     for i in range(50):
         row = sorted_values[i]
-        print(str(rank) + ". " + str(row['name']) + ":      " + str(row['final']) + "      " +  str((row['stats']))) 
+        stats = row['stats']
+        print(str(rank) + ". " + str(row['name']) + ":\t" + str(row['final']) + "\t" +  ', '.join(str(x) for x in stats)) 
         rank += 1
 
-
-intro()
-user_input() 
-calculation()
-
+if __name__ =='__main__':
+    intro()
+    user_input() 
+    calculation()
