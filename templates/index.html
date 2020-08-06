@@ -6,7 +6,9 @@
     </head>
     <body>
         <div class='top-header'>
-            <h1>NBA G.O.A.T. Calculator</h1>
+            {%for i in range(0, len)%}
+                <li>{{value[i]}}</li>
+            {%endfor%}
         </div>
     </body>
 </html>
