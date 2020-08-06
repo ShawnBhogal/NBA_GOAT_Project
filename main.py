@@ -158,6 +158,9 @@ def user_input():
 def calculation(weight_dict):
     values_weight_dict = list(weight_dict.values())
 
+    if (len(weight_dict) == 0):
+        return results_dict
+
     list_size = len(values_weight_dict)
 
     #sql query to import stats from category user chooses

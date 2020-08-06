@@ -10,10 +10,40 @@
             <form action="/">
                 <input type="submit" value="Calculate Again">
             </form>
+            <style>
+                table {
+                  font-family: arial, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%;
+                }
+                
+                td, th {
+                  border: 1px solid #dddddd;
+                  text-align: left;
+                  padding: 8px;
+                }
+                
+                tr:nth-child(even) {
+                  background-color: #dddddd;
+                }
+            </style>
             <h3>Results:</h3>
-            {%for i in res%}
-                <p>{{i}}<br />{{res[i]}}</p>
-            {%endfor%}
+            <table>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Final</th>
+                    <th>Stats</th>
+                </tr>
+                {%for player in res%}
+                <tr>
+                    <td>{{player['rank']}}</td>
+                    <td>{{player['name']}}</td>
+                    <td>{{player['final']}}</td>
+                    <td>{{player['stats']}}</td>
+                </tr>
+                {%endfor%}
+            </table>
         </div>
     </body>
 </html>
