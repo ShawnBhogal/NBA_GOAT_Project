@@ -1,19 +1,13 @@
 from flask import Flask 
 from flask import request, render_template
 from prompts import reg_stats, adv_stats, adv_desc
-from main import cat_dict
+from methods import cat_dict, calculation
 
 app = Flask(__name__)
 
 # keeping tracking of weight values of stats
 weight_dict = {}
 
-# results of top bball players
-results_dict = {}
-
-# TODO: import calculation function
-# TODO: have it take weight dict as argument
-# TODO: have it return results dict
 # TODO: feed results dict to results.html
 
 # results page
@@ -25,10 +19,12 @@ def results():
         # if user entered weight for category, add it to weight dict
         if (weight):
             weight_dict[cat_dict[i+1]] = weight
+    results_dict = calculation(weight_dict)
     return render_template(
         'results.html', 
-        len=len(weight_dict),
-        res=weight_dict)
+        len_weight=len(weight_dict),
+        weight=weight_dict,
+        res=results_dict)
 
 # home page
 @app.route('/')
