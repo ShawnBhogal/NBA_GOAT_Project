@@ -1,8 +1,8 @@
 head {
-    text-align: left;
+    text-align: center;
 }
 
-.top-header {
-    text-align: left;
+div.top-header {
+    text-align: center;
     color: rgb(0, 0, 0);
 }

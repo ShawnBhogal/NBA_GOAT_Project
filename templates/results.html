@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>NBA Goat App</title>
+        <link rel= "stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
+        <h1 align="center"> NBA GOAT Calculator 🏀 </h1>
+    </head>
+    <body>
+        <div class='top-header'>
+            <form action="/">
+                <input type="submit" value="Calculate Again">
+            </form>
+            <h3>Results:</h3>
+            {%for i in res%}
+                <p>{{i}}<br />{{res[i]}}</p>
+            {%endfor%}
+        </div>
+    </body>
+</html>

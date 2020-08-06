@@ -1,1 +1,8 @@
+# ignore pycache
 __pycache__
+
+# ignore mac system files
+.DS_Store
+
+# ignore .pyc files
+*.pyc
