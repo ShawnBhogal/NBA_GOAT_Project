@@ -155,7 +155,7 @@ def user_input():
     
 
 # method for extracting weight dict values into list
-def calculation():
+def calculation(weight_dict):
     values_weight_dict = list(weight_dict.values())
 
     list_size = len(values_weight_dict)
