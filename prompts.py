@@ -54,7 +54,7 @@ adv_desc = [
      "    - An estimate of the percentage of teammate field goals a player assisted while on the floor.",
      "    - An estimate of the percentage of opponent possessions that end with a steal while on the floor.",
      "    - An estimate of the percentage of opponent two-point field goal attempts blocked by while on the floor.",  
-     "    - An estimate of points produced (players, or scored (teams, per 100 possessions",
+     "    - An estimate of points produced (players, or scored teams, per 100 possessions)",
      "    - An estimate of points allowed per 100 possessions",
      "    - An estimate of the number of wins contributed by a player due to his offense.", 
      "    - An estimate of the number of wins contributed by a player due to his defense.",
