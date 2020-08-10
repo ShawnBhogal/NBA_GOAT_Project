@@ -49,6 +49,10 @@ cat_dict = {
 # method for extracting weight dict values into list
 def calculation(weight_dict):
     results_dict = []
+
+    if (len(weight_dict) == 0):
+        return results_dict
+
     values_weight_dict = list(weight_dict.values())
 
     list_size = len(values_weight_dict)
