@@ -23,7 +23,7 @@
         <div>
             <p align="center">UNLESS SPECIFIED, ASSUME ALL CATEGORIES ARE PER GAME</p>
             <div style="margin-left: 100px;">
-                <form action="/results" method="POST">
+                <form action="/results" method="post">
                     <p>REGULAR STATS:</p>
                     {%for i in range(0, reg_len)%}
                         <p>{{reg_stats[i]}}
@@ -37,6 +37,7 @@
                     {%endfor%}
                     <div align="center">
                         <input type="submit" value="CALCULATE">
+                        <input type="reset" value="Clear Entry"
                     </div>
                 </form>
             </div>

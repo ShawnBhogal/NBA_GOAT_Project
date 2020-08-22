@@ -1,5 +1,4 @@
-from flask import Flask 
-from flask import request, render_template
+from flask import Flask, request, render_template
 from prompts import reg_stats, adv_stats, adv_desc
 from methods import cat_dict, calculation
 
@@ -8,10 +7,8 @@ app = Flask(__name__)
 # keeping tracking of weight values of stats
 weight_dict = {}
 
-# TODO: feed results dict to results.html
-
 # results page
-@app.route('/results', methods=['POST'])
+@app.route("/results", methods=['GET', 'POST'])
 def results():
     # check weight entried for all categories
     for i in range(0, (len(reg_stats)+len(adv_stats))):
@@ -27,8 +24,11 @@ def results():
         res=results_dict)
 
 # home page
-@app.route('/')
+@app.route("/", methods=['GET', 'POST'])
 def home():
+    # new entry
+    if request.method == 'GET':
+        weight_dict.clear()
     return render_template(
         'index.html', 
         reg_len=len(reg_stats),

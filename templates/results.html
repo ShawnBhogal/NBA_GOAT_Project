@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel= "stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
     <head>
         <title>NBA Goat App</title>
-        <link rel= "stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
-        <h1 align="center"> NBA GOAT Calculator 🏀 </h1>
+        <h1 align="center"> 🏀 NBA GOAT Calculator 🏀 </h1>
     </head>
     <body>
-        <div class='top-header'>
-            <form action="/">
-                <input type="submit" value="Calculate Again">
-            </form>
-            <style>
-                table {
-                  font-family: arial, sans-serif;
-                  border-collapse: collapse;
-                  width: 100%;
-                }
-                
-                td, th {
-                  border: 1px solid #dddddd;
-                  text-align: left;
-                  padding: 8px;
-                }
-                
-                tr:nth-child(even) {
-                  background-color: #dddddd;
-                }
-            </style>
+        <div>
+            <div align="center">
+                <form action="/" method="get" name="calculate-new">
+                    <input type="submit" value="Calculate New Entry">
+                </form>
+                <form action="/" method="post" name="adjust-stats">
+                    <input type="submit" value="Adjust Entry">
+                </form>
+            </div>
             <h3>Results:</h3>
             <table>
                 <tr>
