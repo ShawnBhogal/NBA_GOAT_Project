@@ -1,50 +1,7 @@
 # import relevant libraries/frameworks
 from decimal import *
 import psycopg2 as pg2
-
-# this is where the user will choose which stats they want to evaluate 
-# user will also be prompted to input a number from 1 to 10 as weight for the importance of each stat
-cat_dict = {
-     1 : "games_played", 
-     2 : "mp",
-     3 : "fg" ,
-     4 : "fga", 
-     5 : "two_p", 
-     6 : "two_pa",
-     7 : "three_p", 
-     8 : "three_pa",
-     9 : "ft", 
-    10 : "fta",
-    11 : "orb", 
-    12 : "drb", 
-    13 : "trb", 
-    14 : "ast", 
-    15 : "stl",
-    16 : "blk", 
-    17 : "pts", 
-    18 : "fg_pct", 
-    19 : "two_p_pct", 
-    20 : "three_p_pct", 
-    21 : "efg_pct", 
-    22 : "ft_pct", 
-    23 : "trueshooting_pct", 
-    24 : "three_par",
-    25 : "ftr", 
-    26 : "orb_pct", 
-    27 : "drb_pct",  
-    28 : "ast_pct", 
-    29 : "stl_pct", 
-    30 : "blk_pct", 
-    31 : "ortg", 
-    32 : "drtg", 
-    33 : "ows", 
-    34 : "dws", 
-    35 : "ws", 
-    36 : "obpm", 
-    37 : "dbpm",  
-    38 : "bpm", 
-    39 : "vorp" 
-}
+from prompts import cat_dict
 
 # method for extracting weight dict values into list
 def calculation(weight_dict):
@@ -58,8 +15,8 @@ def calculation(weight_dict):
     list_size = len(values_weight_dict)
 
     #sql query to import stats from category user chooses
-    conn = pg2.connect(database = 'NBA GOAT Project', user = 'postgres', password = 'thebeatles')
-    # conn = pg2.connect(database = 'postgres', user = 'postgres', password = 'pragath1')
+    # conn = pg2.connect(database = 'NBA GOAT Project', user = 'postgres', password = 'thebeatles')
+    conn = pg2.connect(database = 'postgres', user = 'postgres', password = 'pragath1')
     cur = conn.cursor()
 
     cur.execute('SELECT player, {} FROM all_stats'.format(", ".join(weight_dict)))
@@ -83,7 +40,6 @@ def calculation(weight_dict):
         max_val_array.append(0)
         index_val += 1
 
-
     #inputting min and max values into zeroed arrays
     for person in player_list:
         index = 0
@@ -102,7 +58,7 @@ def calculation(weight_dict):
         while (index_3 < list_size):
             if (person['stats'][index_3] != None):
                 # (x - min)/(max - min)
-                calced_result =((person['stats'][index_3] - min_val_array[index_3])/(max_val_array[index_3] - 
+                calced_result =((Decimal(person['stats'][index_3]) - min_val_array[index_3])/(max_val_array[index_3] - 
                     min_val_array[index_3]))*(Decimal(values_weight_dict[index_3]))
                 calced_result = round(calced_result, 3)
                 calculated_player.append(calced_result)
@@ -126,7 +82,6 @@ def calculation(weight_dict):
         row = sorted_values[i]
         stats = []
         player_dict = {}
-        # [{rank: 1, name: bob, final: 5.5, stats: [3, 4]}, {rank: 1, name: bob, final: 5.5, stats: [3, 4]}]
         player_dict['rank'] = rank
         player_dict['name'] = row['name']
         player_dict['final'] = row['final']

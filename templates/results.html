@@ -29,20 +29,20 @@
                     <input type="submit" value="Adjust Entry">
                 </form>
             </div>
-            <h3>Results:</h3>
+            <h3 >Results:</h3>
             <table>
                 <tr>
                     <th>Rank</th>
                     <th>Name</th>
-                    <th>Final</th>
-                    <th>Stats</th>
+                    <th>Final Weighted Score</th>
+                    <th>Stats: {{ ', '.join(stat_names)|safe }}</th>
                 </tr>
                 {%for player in res%}
                 <tr>
-                    <td>{{player['rank']}}</td>
-                    <td>{{player['name']}}</td>
-                    <td>{{player['final']}}</td>
-                    <td>{{player['stats']}}</td>
+                    <td>{{ player['rank'] }}</td>
+                    <td>{{ player['name'] }}</td>
+                    <td>{{ player['final'] }}</td>
+                    <td>{{ ', '.join(player['stats'])|safe }}</td>
                 </tr>
                 {%endfor%}
             </table>

@@ -25,16 +25,16 @@
             <div style="margin-left: 100px;">
                 <form action="/results" method="post">
                     <p>REGULAR STATS:</p>
-                    {%for i in range(0, reg_len)%}
-                        <p>{{reg_stats[i]}}
+                    {% for i in range(0, reg_len) %}
+                        <p>{{ reg_stats[i] }}
                         <input type="number" id={{i}} name="weight{{i}}" min="1" max="10">
                         </p>
-                    {%endfor%}
+                    {% endfor %}
                     <p><br />ADVANCED STATS:</p>
-                    {%for i in range(0, adv_len)%}
-                        <p>{{adv_stats[i]}}<br />{{adv_desc[i]}}</p>
+                    {% for i in range(0, adv_len) %}
+                        <p>{{ adv_stats[i] }}<br />{{ adv_desc[i] }}</p>
                         <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
-                    {%endfor%}
+                    {% endfor %}
                     <div align="center">
                         <input type="submit" value="CALCULATE">
                         <input type="reset" value="Clear Entry"
