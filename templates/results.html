@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel= "stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         table {
           border-collapse: collapse;
@@ -14,6 +14,9 @@
         tr:nth-child(even) {
           background-color: #dddddd;
         }
+        tr.goat {
+            background-color: rgb(236, 185, 138);
+        }
     </style>
     <head>
         <title>NBA Goat App</title>
@@ -25,8 +28,8 @@
                 <form action="/" method="get" name="calculate-new">
                     <input type="submit" value="Calculate New Entry">
                 </form>
-                <form action="/" method="post" name="adjust-stats">
-                    <input type="submit" value="Adjust Entry">
+                <form action="/" method="post" name="edit-stats">
+                    <input type="submit" value="Edit Entry">
                 </form>
             </div>
             <h3 >Results:</h3>
@@ -35,9 +38,15 @@
                     <th>Rank</th>
                     <th>Name</th>
                     <th>Final Weighted Score</th>
-                    <th>Stats: {{ ', '.join(stat_names)|safe }}</th>
+                    <th>{{ ', '.join(stat_names)|safe }}</th>
                 </tr>
-                {%for player in res%}
+                <tr class = "goat">
+                    <td>{{ res[0]['rank'] }} 🐐</td>
+                    <td>{{ res[0]['name'] }}</td>
+                    <td>{{ res[0]['final'] }}</td>
+                    <td>{{ ', '.join(res[0]['stats'])|safe }}</td>
+                </tr>
+                {%for player in res[1:]%}
                 <tr>
                     <td>{{ player['rank'] }}</td>
                     <td>{{ player['name'] }}</td>
@@ -48,4 +57,7 @@
             </table>
         </div>
     </body>
+    <footer align="center">
+        Created by Shawn Bhogal and Pragathi Shankar
+    </footer>
 </html>

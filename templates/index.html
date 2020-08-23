@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <head>
         <title>NBA Goat App</title>
-        <link rel= "stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
         <h1 align="center"> 🏀 NBA GOAT Calculator 🏀 </h1>
     </head>
-    <body>
+    <body style="margin-left: 100px;">
         <div class='top-header'>
             <h3>Welcome!</h3>
             <h3> This your very own NBA Greatest of All Time (G.O.A.T.) Calculator!</h3>
@@ -13,17 +13,34 @@
             <br> Choose and rank from 40 unique statistical categories on a scale of 1 to 10 (10 being the most important). 
             <br> Your selections are then fed through a meticulously crafted formula revealing the GOAT player for those user selected stats. <br />
         </div>
-        <div style="margin-left: 100px;">
+        <div>
             <p>Instructions:</p>
             <text>1. Input a weight from 1 to 10 indicating indicating importance <br />
             <br> 2. Any category left blank will be excluded from consideration<br />
             <br> 3. When finished, click calculate!<br />
-            <br> 4. In order to change results adjust stats or click re-calculate to start again.</text>
+            <br> 4. In order to change results, edit stats or click re-calculate to start again.</text>
         </div>
         <div>
             <p align="center">UNLESS SPECIFIED, ASSUME ALL CATEGORIES ARE PER GAME</p>
-            <div style="margin-left: 100px;">
+            <div>
+                <div align="center">
+                    <form action="/" method="get">
+                        <input type="submit" value="Clear Entry">
+                    </form>
+                </div>
                 <form action="/results" method="post">
+                    <div align="center">
+                        <input type="submit" value="CALCULATE 🐐">
+                    </div>
+                    <div align="center">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <h3 style="color:red">{{ message }}</h3>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </div>
                     <p>REGULAR STATS:</p>
                     {% for i in range(0, reg_len) %}
                         <p>{{ reg_stats[i] }}
@@ -35,12 +52,11 @@
                         <p>{{ adv_stats[i] }}<br />{{ adv_desc[i] }}</p>
                         <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
                     {% endfor %}
-                    <div align="center">
-                        <input type="submit" value="CALCULATE">
-                        <input type="reset" value="Clear Entry"
-                    </div>
                 </form>
             </div>
         </div>
     </body>
+    <footer align="center">
+        Created by Shawn Bhogal and Pragathi Shankar
+    </footer>
 </html>

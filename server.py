@@ -1,8 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Flask, flash, request, render_template, redirect, url_for
 from prompts import reg_stats, adv_stats, adv_desc, cat_dict, cat_name
 from methods import calculation
 
 app = Flask(__name__)
+app.secret_key = "kobe is the goat"
 
 # keeping tracking of weight values of stats
 weight_dict = {}
@@ -12,6 +13,7 @@ weight_dict = {}
 def results():
     # for printing purposes
     stat_names= []
+    
     # check weight entried for all categories
     for i in range(0, (len(reg_stats)+len(adv_stats))):
         weight = request.form['weight'+str(i)]
@@ -19,6 +21,12 @@ def results():
         if (weight):
             weight_dict[cat_dict[i+1]] = weight
             stat_names.append(cat_name[cat_dict[i+1]])
+
+    # if user did not select any stats, send alert
+    if len(weight_dict) == 0:
+        flash('Must select at least one statistic', 'error')
+        return redirect(url_for('home'))
+
     # calculate goat players
     results_dict = calculation(weight_dict)
     return render_template(
