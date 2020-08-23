@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <head>
-        <title>NBA Goat App</title>
-        <h1 align="center"> 🏀 NBA GOAT Calculator 🏀 </h1>
-    </head>
-    <body>
+{% extends "layout.html" %}
+{% block content %}
         <div class='top-header'>
             <h3>Welcome!</h3>
             <h3> This your very own NBA Greatest of All Time (G.O.A.T.) Calculator!</h3>
@@ -55,8 +49,4 @@
                 </form>
             </div>
         </div>
-    </body>
-    <footer align="center">
-        Created by Shawn Bhogal and Pragathi Shankar
-    </footer>
-</html>
+{% endblock %}

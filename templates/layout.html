@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" rel="stylesheet">
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        tr.goat {
+            background-color: rgb(236, 185, 138);
+        }
+    </style>
+    <head>
+        <title>NBA Goat App</title>
+        <h1 align="center"> 🏀 NBA GOAT Calculator 🏀 </h1>
+    </head>
+    <body>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+    <footer align="center">
+        {% block footer %}
+        Created by Shawn Bhogal and Pragathi Shankar
+        {% endblock %}
+    </footer>
+</html>

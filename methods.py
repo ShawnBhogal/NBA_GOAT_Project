@@ -15,8 +15,8 @@ def calculation(weight_dict):
     list_size = len(values_weight_dict)
 
     #sql query to import stats from category user chooses
-    # conn = pg2.connect(database = 'NBA GOAT Project', user = 'postgres', password = 'thebeatles')
-    conn = pg2.connect(database = 'postgres', user = 'postgres', password = 'pragath1')
+    conn = pg2.connect(database = 'NBA GOAT Project', user = 'postgres', password = 'thebeatles')
+    #conn = pg2.connect(database = 'postgres', user = 'postgres', password = 'pragath1')
     cur = conn.cursor()
 
     cur.execute('SELECT player, {} FROM all_stats'.format(", ".join(weight_dict)))

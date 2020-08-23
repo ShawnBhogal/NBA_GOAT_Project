@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <head>
-        <title>NBA Goat App</title>
-        <h1 align="center"> 🏀 NBA GOAT Calculator 🏀 </h1>
-    </head>
-    <body style="margin-left: 100px;">
+{% extends "layout.html" %}
+{% block content %}
         <div class='top-header'>
             <h3>Edit Entry</h3>
         </div>
@@ -42,5 +36,4 @@
                 </form>
             </div>
         </div>
-    </body>
-</html>
+{% endblock %}

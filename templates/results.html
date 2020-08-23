@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <style>
-        table {
-          border-collapse: collapse;
-          width: 100%;
-        }
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-        tr.goat {
-            background-color: rgb(236, 185, 138);
-        }
-    </style>
-    <head>
-        <title>NBA Goat App</title>
-        <h1 align="center"> 🏀 NBA GOAT Calculator 🏀 </h1>
-    </head>
-    <body>
+{% extends "layout.html" %}
+{% block content %}
         <div>
             <div align="center">
                 <form action="/" method="get" name="calculate-new">
@@ -62,8 +39,4 @@
                 {%endfor%}
             </table>
         </div>
-    </body>
-    <footer align="center">
-        Created by Shawn Bhogal and Pragathi Shankar
-    </footer>
-</html>
+{% endblock %}
