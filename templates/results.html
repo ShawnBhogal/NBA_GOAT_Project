@@ -28,10 +28,16 @@
                 <form action="/" method="get" name="calculate-new">
                     <input type="submit" value="Calculate New Entry">
                 </form>
-                <form action="/" method="post" name="edit-stats">
+                <form action="/edit_entry" method="post" name="edit-stats">
                     <input type="submit" value="Edit Entry">
                 </form>
             </div>
+            <!-- <div align="center" style="margin-top: 20px;"> -->
+                <!-- <text style="font-weight: bold;">Your Entry:</text> -->
+                <!-- {%for stat in weight_dict%} -->
+                    <!-- <br /><text>{{ cat_name[stat] }}: {{ weight_dict[stat] }}</text> -->
+                <!-- {%endfor%} -->
+            <!-- </div> -->
             <h3 >Results:</h3>
             <table>
                 <tr>
