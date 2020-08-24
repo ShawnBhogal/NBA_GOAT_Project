@@ -67,6 +67,7 @@ def home():
         reg_stats=reg_stats, 
         adv_stats=adv_stats, 
         adv_desc=adv_desc,
+        cat_dict=cat_dict,
         weight_dict=weight_dict)
 
 if __name__ == '__main__':

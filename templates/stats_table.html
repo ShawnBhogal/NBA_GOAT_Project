@@ -1,0 +1,50 @@
+<style>
+    .stats {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+    }
+    th.stats-header {
+        text-align: center;
+    }
+    td.stats-row {
+        background-color: transparent;
+        vertical-align: top;
+    }
+</style>
+<table class="stats">
+    <tr>
+        <th class="stats-header">
+            REGULAR STATS:
+        </th>
+        <th class="stats-header">
+            ADVANCED STATS:
+        </th> 
+    </tr>
+    <tr>
+        <td td class="stats-row">
+            <!-- <p>REGULAR STATS:</p> -->
+            {% for i in range(0, reg_len) %}
+                <p>{{ reg_stats[i] }}
+                {% if weight_dict[cat_dict[i+1]] %}
+                    <input type="number" id={{i}} name="weight{{i}}" min="1" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
+                {% else %}
+                    <input type="number" id={{i}} name="weight{{i}}" min="1" max="10">
+                {% endif %}
+                </p>
+            {% endfor %}
+        </td>
+        <td class="stats-row">
+            <!-- <p>ADVANCED STATS:</p> -->
+            {% for i in range(0, adv_len) %}
+                <p title="{{ adv_desc[i] }}">{{ adv_stats[i] }}
+                {% if weight_dict[cat_dict[i+reg_len+1]] %}
+                    <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
+                {% else %}
+                    <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
+                {% endif %}
+                </p>
+            {% endfor %}
+        </td>
+    </tr>
+</table>

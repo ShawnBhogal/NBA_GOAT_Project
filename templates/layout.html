@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" rel="stylesheet">
     <style>
-        .top-header {
+        @font-face { 
+            font-family: Basketball; 
+            src: url('Basketball.otf'); 
+        } 
+        :root {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: "center";
+            background-color: rgb(199, 234, 243);
+        }
+        .all {
+            border: 2px solid red;
+        }
+        header {
+            font-family: Basketball;
+            letter-spacing: 4px;
+            font-size: 52px;
+            border: 2px solid blue;
+            padding: 5px;
+        }
+        .top_header {
             text-align: center;
         }
-        .results {
-          border-collapse: collapse;
-          width: 100%;
-        }
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-        tr.goat {
-            background-color: rgb(236, 185, 138);
+        body.content {
+            background-color: bisque;
+            padding: 5px;
         }
     </style>
-    <head>
-        <title>NBA Goat App</title>
-        <h1 align="center"> 🏀 NBA GOAT Calculator 🏀 </h1>
-    </head>
-    <body>
-        <div id="content">
+    <div class="all">
+        <head>
+            <title>NBA Goat App</title>
+        </head>
+        <header class="header">
+            <nav class="app-title" align="center"> 🏀 NBA GOAT Calculator 🏀 </nav>
+        </header>
+        <body id="content" class="content">
             {% block content %}{% endblock %}
-        </div>
-    </body>
-    <footer align="center">
-        {% block footer %}
-        Created by Shawn Bhogal and Pragathi Shankar
-        {% endblock %}
-    </footer>
+        </body>
+        <footer id="footer" align="center">
+            {% block footer %}
+                Created by Shawn Bhogal and Pragathi Shankar
+            {% endblock %}
+        </footer>
+    </div>
 </html>

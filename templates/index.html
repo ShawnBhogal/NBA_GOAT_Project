@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
+
 {% block content %}
-        <div class='top-header'>
+    <div class='top-header'>
             <br> <br />
             <h4> Settle the argument for who is the GOAT once and for all!</h4>
             <h5> Pick and choose which stats best suit YOUR greatest basketball player of all time.</h5>
@@ -15,37 +16,28 @@
             <br> 5. Unless specified, all categories are per game averages over a players career.</text>
         </div>
         <div>
-            <div>
-                <div align="center">
-                    <form action="/" method="get">
-                        <input type="submit" value="Clear Entry">
-                    </form>
-                </div>
-                <form action="/results" method="post">
-                    <div align="center">
-                        <input type="submit" value="CALCULATE 🐐">
-                    </div>
-                    <div align="center">
-                        {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                                {% for message in messages %}
-                                    <h3 style="color:red">{{ message }}</h3>
-                                {% endfor %}
-                            {% endif %}
-                        {% endwith %}
-                    </div>
-                    <p>REGULAR STATS:</p>
-                    {% for i in range(0, reg_len) %}
-                        <p>{{ reg_stats[i] }}
-                        <input type="number" id={{i}} name="weight{{i}}" min="1" max="10">
-                        </p>
-                    {% endfor %}
-                    <p><br />ADVANCED STATS:</p>
-                    {% for i in range(0, adv_len) %}
-                        <p>{{ adv_stats[i] }}<br />{{ adv_desc[i] }}</p>
-                        <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
-                    {% endfor %}
+            <div align="center">
+                <form action="/" method="get">
+                    <input type="submit" value="Clear Entry">
                 </form>
             </div>
+            <form action="/results" method="post">
+                <div align="center">
+                    <input type="submit" value="CALCULATE 🐐">
+                </div>
+                <div align="center">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <h3 style="color:red">{{ message }}</h3>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div>
+                    {% include 'stats_table.html' %}
+                </div>
+            </form>
         </div>
+    </div>
 {% endblock %}
