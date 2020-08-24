@@ -6,7 +6,6 @@
         padding-bottom: 25px;
         font-size: 19px;
     }
-    
     .goat-intro {
         text-align: center;
         font-family: Poppins;
@@ -31,6 +30,62 @@
         border-radius: 5px;
         padding-left: 2px;
     }
+    .form-cont {
+        padding-top: 5px;
+    }
+    .clear-button-cont {
+        position: absolute;
+        width: 100%;
+        padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .calc-button-cont {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        width: 20%;
+        padding-top: 15px;
+        text-align: center;
+    }
+    .calc-button {
+        display:inline-block;
+        padding:0.35em 1.2em;
+        border:0.1em solid #FFFFFF;
+        margin:0 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+        font-family:'Roboto',sans-serif;
+        font-weight:bold;
+        font-size: 26px;
+        color:#FFFFFF;
+        background-color:transparent;
+        text-align:center;
+        transition: all 0.2s;
+        animation:bouncy 5s infinite linear;
+        position: relative;
+    }
+    .calc-button:hover {
+        color:#04171bcc;
+        background-color:#FFFFFF;
+    }
+    @keyframes bouncy {
+        0% { top:0em }
+        40% { top:0em }
+        43% { top:-0.9em }
+        46% { top:0em }
+        48% { top:-0.4em }
+        50% { top:0em }
+        100% { top:0em }
+    }
+    @media all and (max-width:30em) {
+        .calc-button {
+            display: block;
+            margin: 0.4em auto;
+        }
+    }
+
 </style>
         <div class="top-intro">
             <div class="goat-intro">
@@ -47,15 +102,10 @@
                 <br />4. Unless specified, all categories are per game averages over a players career.</text>
             </div>
         </div>
-        <div>
-            <div align="center">
-                <form action="/" method="get">
-                    <input type="submit" value="Clear Entry">
-                </form>
-            </div>
+        <div class="form-cont">
             <form action="/results" method="post">
-                <div align="center">
-                    <input type="submit" value="CALCULATE 🐐">
+                <div class="calc-button-cont">
+                    <input class="calc-button" type="submit" value="CALCULATE">
                 </div>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
@@ -70,5 +120,12 @@
                     {% include 'stats_table.html' %}
                 </div>
             </form>
+            <div>
+                <form action="/" method="get">
+                    <div class="clear-button-cont">
+                        <input class="clear-button" type="submit" value="Clear Entry">
+                    </div>
+                </form>
+            </div>
         </div>
 {% endblock %}
