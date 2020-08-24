@@ -17,9 +17,9 @@
             <!-- </div> -->
             <h3 >Results:</h3>
             <table class="results">
-                <tr class="results-column-names">
-                    <th>Rank</th>
-                    <th>Name</th>
+                <tr class="results-header-row">
+                    <th class="results-header">Rank</th>
+                    <th class="results-header">Name</th>
                     <th>Final Weighted Score</th>
                     <th>{{ ', '.join(stat_names)|safe }}</th>
                 </tr>
@@ -39,4 +39,4 @@
                 {%endfor%}
             </table>
         </div>
-{% endblock %}
+{% endblock %}  
