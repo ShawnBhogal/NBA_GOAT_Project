@@ -1,52 +1,62 @@
 {% extends "layout.html" %}
+
 {% block content %}
-        <div class='top-header'>
-            <h3>Welcome!</h3>
-            <h3> This your very own NBA Greatest of All Time (G.O.A.T.) Calculator!</h3>
-            <br> Here you will be able to pick and choose which stats best suit YOUR idea of the greatest basketball player of all time.
-            <br> Choose and rank from 40 unique statistical categories on a scale of 1 to 10 (10 being the most important). 
-            <br> Your selections are then fed through a meticulously crafted formula revealing the GOAT player for those user selected stats. <br />
+<style>
+    .goat-intro {
+        text-align: center;
+    }
+    .instructions {
+        line-height: 150%;
+        font-weight: bold;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .calc-alert {
+        text-align: center;
+        background-color:rgba(235, 186, 186, 0.692);
+        width:fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 5px;
+        padding-left: 2px;
+    }
+</style>
+        <div class="top-intro">
+            <div class="goat-intro">
+                <h3> Settle the argument for who is the GOAT once and for all!
+                <br />Pick and choose which stats best suit YOUR greatest basketball player of all time.</h3>
+            </div>
+            <div class="instructions">
+                <text>Instructions:
+                <br />1. Input a weight from 1 to 10 indicating importance
+                <br />2. Any category left blank will be excluded from consideration
+                <br />3. When finished, click calculate!
+                <br />4. Unless specified, all categories are per game averages over a players career.</text>
+            </div>
         </div>
         <div>
-            <p>Instructions:</p>
-            <text>1. Input a weight from 1 to 10 indicating indicating importance <br />
-            <br> 2. Any category left blank will be excluded from consideration<br />
-            <br> 3. When finished, click calculate!<br />
-            <br> 4. In order to change results, edit stats or click re-calculate to start again.</text>
-        </div>
-        <div>
-            <p align="center">UNLESS SPECIFIED, ASSUME ALL CATEGORIES ARE PER GAME</p>
-            <div>
-                <div align="center">
-                    <form action="/" method="get">
-                        <input type="submit" value="Clear Entry">
-                    </form>
-                </div>
-                <form action="/results" method="post">
-                    <div align="center">
-                        <input type="submit" value="CALCULATE 🐐">
-                    </div>
-                    <div align="center">
-                        {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                                {% for message in messages %}
-                                    <h3 style="color:red">{{ message }}</h3>
-                                {% endfor %}
-                            {% endif %}
-                        {% endwith %}
-                    </div>
-                    <p>REGULAR STATS:</p>
-                    {% for i in range(0, reg_len) %}
-                        <p>{{ reg_stats[i] }}
-                        <input type="number" id={{i}} name="weight{{i}}" min="1" max="10">
-                        </p>
-                    {% endfor %}
-                    <p><br />ADVANCED STATS:</p>
-                    {% for i in range(0, adv_len) %}
-                        <p>{{ adv_stats[i] }}<br />{{ adv_desc[i] }}</p>
-                        <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
-                    {% endfor %}
+            <div align="center">
+                <form action="/" method="get">
+                    <input type="submit" value="Clear Entry">
                 </form>
             </div>
+            <form action="/results" method="post">
+                <div align="center">
+                    <input type="submit" value="CALCULATE 🐐">
+                </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="calc-alert">
+                            {% for message in messages %}
+                                <h3 style="color:rgb(180, 16, 16)">{{ message }}</h3>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <div>
+                    {% include 'stats_table.html' %}
+                </div>
+            </form>
         </div>
 {% endblock %}

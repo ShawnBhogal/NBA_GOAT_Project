@@ -1,42 +1,97 @@
 {% extends "layout.html" %}
+
 {% block content %}
-        <div>
-            <div align="center">
-                <form action="/" method="get" name="calculate-new">
-                    <input type="submit" value="Calculate New Entry">
-                </form>
-                <form action="/edit_entry" method="post" name="edit-stats">
-                    <input type="submit" value="Edit Entry">
-                </form>
-            </div>
-            <!-- <div align="center" style="margin-top: 20px;"> -->
-                <!-- <text style="font-weight: bold;">Your Entry:</text> -->
-                <!-- {%for stat in weight_dict%} -->
-                    <!-- <br /><text>{{ cat_name[stat] }}: {{ weight_dict[stat] }}</text> -->
-                <!-- {%endfor%} -->
-            <!-- </div> -->
+<style>
+    .results {
+        border-collapse: collapse;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-shadow: 0px 0px 15px 6px rgba(67,84,91,0.43); 
+        box-shadow: 0px 0px 15px 6px rgba(67,84,91,0.43);
+        background-color: #f1f1f1a8;
+        overflow: visible;
+    }
+    td.results-row, th.results-header {
+        border: 1px solid #5c5b4a44;
+        text-align: left;
+        padding: 8px;
+    }
+    tr.results-header-row {
+        background-color: transparent;
+    }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    tr.goat {
+        font-weight: bold;
+        background-color: rgb(236, 185, 138);
+    }
+</style>
+    <div>
+        <div align="center">
+            <form action="/" method="get" name="calculate-new">
+                <input type="submit" value="Calculate New Entry">
+            </form>
+            <form action="/edit_entry" method="post" name="edit-stats">
+                <input type="submit" value="Edit Entry">
+            </form>
+        </div>
+        <!-- <div align="center" style="margin-top: 20px;"> -->
+            <!-- <text style="font-weight: bold;">Your Entry:</text> -->
+            <!-- {%for stat in weight_dict%} -->
+                <!-- <br /><text>{{ cat_name[stat] }}: {{ weight_dict[stat] }}</text> -->
+            <!-- {%endfor%} -->
+        <!-- </div> -->
+        <div align="center">
             <h3 >Results:</h3>
-            <table>
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Final Weighted Score</th>
-                    <th>{{ ', '.join(stat_names)|safe }}</th>
+            <table class="results">
+                <tr class="results-header-row">
+                    <th class="results-header">
+                        Rank
+                    </th>
+                    <th class="results-header">
+                        Name
+                    </th>
+                    <th class="results-header">
+                        Final Weighted Score
+                    </th>
+                    <th class="results-header">
+                        {{ ', '.join(stat_names)|safe }}
+                    </th>
                 </tr>
                 <tr class = "goat">
-                    <td>{{ res[0]['rank'] }} 🐐</td>
-                    <td>{{ res[0]['name'] }}</td>
-                    <td>{{ res[0]['final'] }}</td>
-                    <td>{{ ', '.join(res[0]['stats'])|safe }}</td>
+                    <td class="results-row">
+                        {{ res[0]['rank'] }} 🐐
+                    </td>
+                    <td class="results-row">
+                        {{ res[0]['name'] }}
+                    </td>
+                    <td class="results-row">
+                        {{ res[0]['final'] }}
+                    </td>
+                    <td class="results-row">
+                    {{ ', '.join(res[0]['stats'])|safe }}
+                    </td>
                 </tr>
                 {%for player in res[1:]%}
-                <tr>
-                    <td>{{ player['rank'] }}</td>
-                    <td>{{ player['name'] }}</td>
-                    <td>{{ player['final'] }}</td>
-                    <td>{{ ', '.join(player['stats'])|safe }}</td>
-                </tr>
+                    <tr>
+                        <td class="results-row">
+                            {{ player['rank'] }}
+                        </td>
+                        <td class="results-row">
+                            {{ player['name'] }}
+                        </td>
+                        <td class="results-row">
+                            {{ player['final'] }}
+                        </td>
+                        <td class="results-row">
+                            {{ ', '.join(player['stats'])|safe }}
+                        </td>
+                    </tr>
                 {%endfor%}
             </table>
         </div>
+
+    </div>
 {% endblock %}

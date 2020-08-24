@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" rel="stylesheet">
-    <style>
-        table {
-          border-collapse: collapse;
-          width: 100%;
-        }
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-        tr.goat {
-            background-color: rgb(236, 185, 138);
-        }
-    </style>
     <head>
         <title>NBA Goat App</title>
-        <h1 align="center"> 🏀 NBA GOAT Calculator 🏀 </h1>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            @font-face { 
+                font-family: Basketball; 
+                src: url('static/fonts/Basketball.otf'); 
+            } 
+            :root {
+                align-items: flex-start;
+                font-family: 'Courier New', Courier, monospace;
+                text-align: "center";
+                background-image: url("static/images/linear_bg.svg");
+                background-color: rgb(62, 158, 137);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                position: relative;
+                overflow: auto;
+            }
+            header {
+                font-family: Basketball;
+                color: whitesmoke;
+                background-color: #00000048;
+                letter-spacing: 4px;
+                font-size: 56px;
+                padding-top: 5px; 
+                text-align: center;
+            }
+            .top_header {
+                text-align: center;
+            }
+            .content {
+                padding-bottom: 50px;
+                padding-top: 15px;
+            }
+            .footer {
+                padding: 10px;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+            }
+        </style>
     </head>
-    <body>
-        <div id="content">
-            {% block content %}{% endblock %}
-        </div>
-    </body>
-    <footer align="center">
-        {% block footer %}
-        Created by Shawn Bhogal and Pragathi Shankar
-        {% endblock %}
-    </footer>
+    <div>
+        <header class="header">
+            <div class="app-title"> 🐐🏀 NBA GOAT Calculator 🏀🐐 </div>
+        </header>
+        <body>
+            <div id="content" class="content">
+                {% block content %}{% endblock %}
+            </div>
+        </body>
+        <footer class="footer">
+            Created by Shawn Bhogal and Pragathi Shankar
+        </footer>
+    </div>
+    
 </html>

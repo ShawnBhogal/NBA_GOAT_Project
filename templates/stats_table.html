@@ -1,0 +1,95 @@
+<style>
+    .stats-cont {
+        display: table;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: visible;
+    }
+    .stat-col-pad {
+        padding: 10px;
+        display: table-cell;
+        width: 50%;
+        overflow: visible;
+        position: relative;
+    }
+    .stat-col {
+        overflow: visible;
+        position: relative;
+        border-radius: 25px;
+        -webkit-box-shadow: 0px 0px 15px 6px rgba(67,84,91,0.43); 
+        box-shadow: 0px 0px 15px 6px rgba(67,84,91,0.43);
+        background-color: #f1f1f1a8;
+    }
+    .stat-header {
+        text-align: center;
+        font-weight: bold;
+        padding-top: 30px;
+    }
+    .stat-list {
+        height: 100%;
+        padding-bottom: 10px;
+    }
+    .stats-nested {
+        border-collapse: separate;
+        table-layout: auto;
+        width: 85%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    td.stat-nested-title {
+        padding: 10px;
+        width: 80%;
+    }
+    td.stat-nested-val {
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+<div class="stats-cont">
+    <div class="stat-col-pad">
+        <div class="stat-col">
+            <p class="stat-header">REGULAR STATS:</p>
+            <div class="stat-list">
+                <table class="stats-nested">
+                    <!-- <p>REGULAR STATS:</p> -->
+                    {% for i in range(0, reg_len) %}
+                    <tr class="stat-nested-row">
+                        <td class="stat-nested-title">{{ reg_stats[i] }}</td>
+                        <td class="stat-nested-val">
+                            {% if weight_dict[cat_dict[i+1]] %}
+                                <input type="number" id={{i}} name="weight{{i}}" min="1" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
+                            {% else %}
+                                <input type="number" id={{i}} name="weight{{i}}" min="1" max="10">
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %} 
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="stat-col-pad">
+        <div class="stat-col">
+            <p class="stat-header">ADVANCED STATS:</p>
+            <div class="stat-list">
+                <table class="stats-nested">
+                    <!-- <p>ADVANCED STATS:</p> -->
+                    {% for i in range(0, adv_len) %}
+                    <tr class="stat-nested-row">
+                        <td class="stat-nested-title" title="{{ adv_desc[i] }}">{{ adv_stats[i] }}</td>
+                        <td class="stat-nested-val">
+                            {% if weight_dict[cat_dict[i+reg_len+1]] %}
+                                <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
+                            {% else %}
+                                <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

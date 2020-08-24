@@ -1,39 +1,24 @@
 {% extends "layout.html" %}
+
 {% block content %}
-        <div class='top-header'>
-            <h3>Edit Entry</h3>
-        </div>
+    <div class='top_header'>
+        <h3>Edit Entry</h3>
+    </div>
+    <div>
         <div>
-            <div>
-                <div align="center">
-                    <form action="/results" method="get">
-                        <input type="submit" value="Cancel">
-                    </form>
-                </div>
-                <form action="/results" method="post">
-                    <div align="center">
-                        <input type="submit" value="RE CALCULATE">
-                    </div>
-                    <p>REGULAR STATS:</p>
-                    {% for i in range(0, reg_len) %}
-                        <p>{{ reg_stats[i] }}
-                        {% if weight_dict[cat_dict[i+1]] %}
-                            <input type="number" id={{i}} name="weight{{i}}" min="1" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
-                        {% else %}
-                            <input type="number" id={{i}} name="weight{{i}}" min="1" max="10">
-                        {% endif %}
-                        </p>
-                    {% endfor %}
-                    <p><br />ADVANCED STATS:</p>
-                    {% for i in range(0, adv_len) %}
-                        <p>{{ adv_stats[i] }}<br />{{ adv_desc[i] }}</p>
-                        {% if weight_dict[cat_dict[i+reg_len+1]] %}
-                            <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
-                        {% else %}
-                            <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
-                        {% endif %}
-                    {% endfor %}
+            <div align="center">
+                <form action="/results" method="get">
+                    <input type="submit" value="Cancel">
                 </form>
             </div>
+            <form action="/results" method="post">
+                <div align="center">
+                    <input type="submit" value="RE CALCULATE">
+                </div>
+                <div>
+                    {% include 'stats_table.html' %}
+                </div>
+            </form>
         </div>
+    </div>
 {% endblock %}
