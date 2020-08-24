@@ -1,19 +1,39 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <div class='top-header'>
-            <br> <br />
-            <h4> Settle the argument for who is the GOAT once and for all!</h4>
-            <h5> Pick and choose which stats best suit YOUR greatest basketball player of all time.</h5>
-            <br> <br />
-        </div>
-        <div>
-            <p>Instructions:</p>
-            <text>1. Input a weight from 1 to 10 indicating indicating importance <br />
-            <br> 2. Any category left blank will be excluded from consideration<br />
-            <br> 3. When finished, click calculate!<br />
-            <br> 4. Edit stats or click re-calculate to start fresh.<br />
-            <br> 5. Unless specified, all categories are per game averages over a players career.</text>
+<style>
+    .goat-intro {
+        text-align: center;
+    }
+    .instructions {
+        line-height: 150%;
+        font-weight: bold;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .calc-alert {
+        text-align: center;
+        background-color:rgba(235, 186, 186, 0.692);
+        width:fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 5px;
+        padding-left: 2px;
+    }
+</style>
+        <div class="top-intro">
+            <div class="goat-intro">
+                <h3> Settle the argument for who is the GOAT once and for all!
+                <br />Pick and choose which stats best suit YOUR greatest basketball player of all time.</h3>
+            </div>
+            <div class="instructions">
+                <text>Instructions:
+                <br />1. Input a weight from 1 to 10 indicating importance
+                <br />2. Any category left blank will be excluded from consideration
+                <br />3. When finished, click calculate!
+                <br />4. Unless specified, all categories are per game averages over a players career.</text>
+            </div>
         </div>
         <div>
             <div align="center">
@@ -25,19 +45,18 @@
                 <div align="center">
                     <input type="submit" value="CALCULATE 🐐">
                 </div>
-                <div align="center">
-                    {% with messages = get_flashed_messages() %}
-                        {% if messages %}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="calc-alert">
                             {% for message in messages %}
-                                <h3 style="color:red">{{ message }}</h3>
+                                <h3 style="color:rgb(180, 16, 16)">{{ message }}</h3>
                             {% endfor %}
-                        {% endif %}
-                    {% endwith %}
-                </div>
+                        </div>
+                    {% endif %}
+                {% endwith %}
                 <div>
                     {% include 'stats_table.html' %}
                 </div>
             </form>
         </div>
-    </div>
 {% endblock %}
