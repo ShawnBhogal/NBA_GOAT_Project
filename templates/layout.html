@@ -28,6 +28,9 @@
                 position: relative;
                 overflow: auto;
             }
+            .all {
+                background-color: ;
+            }
             header {
                 font-family: Basketball;
                 color: whitesmoke;
@@ -45,18 +48,18 @@
                 padding-top: 15px;
             }
             .footer {
-                padding: 10px;
+                padding: 20px;
                 text-align: center;
                 color: white;
-                font-weight: bold;
             }
         </style>
     </head>
-    <div>
+    <div class="all">
         <header class="header">
             <div class="app-title"> 🐐🏀 NBA GOAT Calculator 🏀🐐 </div>
         </header>
         <body>
+
             <div id="content" class="content">
                 {% block content %}{% endblock %}
             </div>

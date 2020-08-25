@@ -1,19 +1,50 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<style>
+    .cancel-button-cont, .recalc-button-cont {
+        position: relative;
+        width: 20%;
+        text-align: center;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cancel-button, .recalc-button {
+        display:inline-block;
+        padding:0.3em 1.2em;
+        border:0.1em solid #FFFFFF;
+        margin:0 0.3em 0.3em 0;
+        box-sizing: border-box;
+        font-family: Poppins;
+        color:#FFFFFF;
+        background-color:#4eb5f1;
+        text-align: center;
+        transition: all 0.2s;
+    }
+    .cancel-button:hover, .recalc-button:hover {
+        background-color:#4095c6;
+    }
+    @media all and (max-width:30em) {
+        .cancel-button, .recalc-button {
+            display: block;
+            margin: 0.4em auto;
+        }
+    }
+</style>
     <div class='top_header'>
         <h3>Edit Entry</h3>
     </div>
     <div>
         <div>
-            <div align="center">
-                <form action="/results" method="get">
-                    <input type="submit" value="Cancel">
-                </form>
-            </div>
+            <form action="/results" method="get">
+                <div class="cancel-button-cont">
+                    <input class="cancel-button" type="submit" value="Cancel">
+                </div>
+            </form>
             <form action="/results" method="post">
-                <div align="center">
-                    <input type="submit" value="RE CALCULATE">
+                <div class="recalc-button-cont">
+                    <input class="recalc-button" type="submit" value="Re-Calculate">
                 </div>
                 <div>
                     {% include 'stats_table.html' %}
