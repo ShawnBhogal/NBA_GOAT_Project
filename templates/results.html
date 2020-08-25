@@ -2,6 +2,41 @@
 
 {% block content %}
 <style>
+    .buttons-cont {
+        text-align: center;
+    }
+    .calc-new-button-cont, .edit-button-cont {
+        position: relative;
+        width: 20%;
+        text-align: center;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .calc-new-button, .edit-button {
+        display:inline-block;
+        padding:0.3em 1.2em;
+        border:0.1em solid #FFFFFF;
+        margin:0 0.3em 0.3em 0;
+        box-sizing: border-box;
+        font-family: Poppins;
+        color:#FFFFFF;
+        background-color:#4eb5f1;
+        text-align: center;
+        transition: all 0.2s;
+    }
+    .calc-new-button:hover, .edit-button:hover {
+        background-color:#4095c6;
+    }
+    @media all and (max-width:30em) {
+        .edit-button, .calc-new-button {
+            display: block;
+            margin: 0.4em auto;
+        }
+    }
+    .results-cont {
+        text-align: center;
+    }
     .results {
         font-family: 'Courier New', Courier, monospace;
         border-collapse: collapse;
@@ -30,13 +65,17 @@
     }
 </style>
     <div>
-        <div align="center">
+        <div class="buttons-cont">
             <form action="/" method="get" name="calculate-new">
-                <input type="submit" value="Calculate New Entry">
-            </form>
+                <div class="calc-new-button-cont">
+                    <input class="calc-new-button" type="submit" value="Calculate New Entry">
+                </div>
+            </form>  
             <form action="/edit_entry" method="post" name="edit-stats">
-                <input type="submit" value="Edit Entry">
-            </form>
+                <div class="edit-button-cont">
+                    <input class="edit-button" type="submit" value="Edit Entry">
+                </div>
+            </form> 
         </div>
         <!-- <div align="center" style="margin-top: 20px;"> -->
             <!-- <text style="font-weight: bold;">Your Entry:</text> -->
@@ -44,7 +83,7 @@
                 <!-- <br /><text>{{ cat_name[stat] }}: {{ weight_dict[stat] }}</text> -->
             <!-- {%endfor%} -->
         <!-- </div> -->
-        <div align="center">
+        <div class="results-cont">
             <h3 >Results:</h3>
             <table class="results">
                 <tr class="results-header-row">
@@ -93,6 +132,5 @@
                 {%endfor%}
             </table>
         </div>
-
     </div>
 {% endblock %}

@@ -31,29 +31,32 @@
         margin-left: auto;
         margin-right: auto;
         border-radius: 5px;
-        padding-left: 2px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
-    .form-cont {
-        padding-top: 5px;
-    }
-    .clear-button-cont {
-        position: absolute;
-        width: 100%;
-        padding: 5px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-    .clear-button {
-        font-family: Poppins;
-    }
-    .calc-button-cont {
-        margin-left: auto;
-        margin-right: auto;
+    .clear-button-cont, .calc-button-cont {
         position: relative;
         width: 20%;
-        padding-top: 15px;
         text-align: center;
+        padding-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .clear-button{
+        display:inline-block;
+        padding:0.3em 1.2em;
+        border:0.1em solid #FFFFFF;
+        margin:0 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+        font-family: Poppins;
+        color:#FFFFFF;
+        background-color:#4eb5f1;
+        text-align:center;
+        transition: all 0.2s;
+    }
+    .clear-button:hover{
+        background-color:#4095c6;
     }
     .calc-button {
         display:inline-block;
@@ -86,12 +89,11 @@
         100% { top:0em }
     }
     @media all and (max-width:30em) {
-        .calc-button {
+        .calc-button, .clear-button  {
             display: block;
             margin: 0.4em auto;
         }
     }
-
 </style>
         <div class="top-intro">
             <div class="goat-intro">
@@ -100,8 +102,7 @@
             </div>
             <div class="instructions">
                 <text>
-                </br>
-                Instructions:
+                </br>Instructions:
                 <br />1. Input a weight from 1 to 10 indicating importance
                 <br />2. Any category left blank will be excluded from consideration
                 <br />3. When finished, click calculate!
