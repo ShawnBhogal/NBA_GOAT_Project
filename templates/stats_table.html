@@ -88,18 +88,18 @@
                             {% else %}
                                 <input class="slider" type="range" id="range{{i}}" name="weight{{i}}" min="0" max="10" value="0">
                             {% endif %}
-                            <label for="range{{i}}" class="slider-val"><span id="demo"></span></label>
+                            <label for="range{{i}}" class="slider-val"><span id="demo1"></span></label>
+                            <script>
+                                var slide = document.getElementById("range".concat(({{i}}).toString()));
+                                var output = document.getElementById("demo".concat((1).toString()));
+                                output.innerHTML = slide.value;
+                                
+                                slide.oninput = function() {
+                                  output.innerHTML = this.value;
+                                }
+                            </script>
                         </td>
                     </tr>
-                    <script>
-                        var slide = document.getElementById("range{{i}}");
-                        var output = document.getElementById("demo");
-                        output.innerHTML = slide.value;
-                        
-                        slide.oninput = function() {
-                          output.innerHTML = this.value;
-                        }
-                    </script>
                     {% endfor %} 
                 </table>
             </div>
