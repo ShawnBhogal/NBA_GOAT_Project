@@ -74,9 +74,9 @@
                         <td class="stat-nested-title">{{ reg_stats[i] }}</td>
                         <td class="stat-nested-val">
                             {% if weight_dict[cat_dict[i+1]] %}
-                                <input type="range" id={{i}} name="weight{{i}}" min="1" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
+                                <input type="number" id={{i}} name="weight{{i}}" min="1" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
                             {% else %}
-                                <input type="range" id={{i}} name="weight{{i}}" min="1" max="10">
+                                <input type="number" id={{i}} name="weight{{i}}" min="1" max="10">
                             {% endif %}
                         </td>
                     </tr>
@@ -93,15 +93,15 @@
                     <!-- <p>ADVANCED STATS:</p> -->
                     {% for i in range(0, adv_len) %}
                     <tr class="stat-nested-row">
-                        <td class="stat-nested-title" title="{{ adv_desc[i] }}">
+                        <td class="stat-nested-title">
                             <div class="stat-desc">{{ adv_stats[i] }}</div>
                             <div class="stat-hide">{{ adv_desc[i] }}</div>
                         </td>
                         <td class="stat-nested-val">
                             {% if weight_dict[cat_dict[i+reg_len+1]] %}
-                                <input type="range" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
+                                <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
                             {% else %}
-                                <input type="range" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
+                                <input type="number" id={{i+reg_len}} name="weight{{i+reg_len}}" min="1" max="10">
                             {% endif %}
                         </td>
                     </tr>
