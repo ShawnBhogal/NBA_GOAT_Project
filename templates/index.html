@@ -8,7 +8,6 @@
     }
     .goat-intro {
         text-align: center;
-        font-family: Poppins;
         color: whitesmoke;
         background-color: #00000048;
         font-size: 23px;
@@ -17,11 +16,28 @@
     .instructions {
         line-height: 150%;
         font-weight: bold;
-        width: 60%;
+        width: 55%;
         margin-left: auto;
         margin-right: auto;
         color: whitesmoke;
-        font-size: 20px;
+        font-size: 16px;
+        padding: 10px;
+    }
+    .instr-input, .instr-menu {
+        display: none;
+    }
+    .instr-label {
+        font-size: 18px;
+        text-align: center;
+        position: relative;
+        display: block;
+        cursor: pointer;
+    }
+    .instr-label:hover {
+        color: rgb(201, 201, 201);
+    }
+    .instr-input:checked~ol.instr-menu {
+        display: block;
     }
     .calc-alert {
         text-align: center;
@@ -54,6 +70,7 @@
         background-color:#4eb5f1;
         text-align:center;
         transition: all 0.2s;
+        cursor: pointer;
     }
     .clear-button:hover{
         background-color:#4095c6;
@@ -74,6 +91,7 @@
         transition: all 0.2s;
         animation:bouncy 5s infinite linear;
         position: relative;
+        cursor: pointer;
     }
     .calc-button:hover {
         color:#04171bcc;
@@ -101,12 +119,14 @@
                 <br/>Pick and choose which stats best suit YOUR greatest basketball player of all time.
             </div>
             <div class="instructions">
-                <text>
-                </br>Instructions:
-                <br />1. Input a weight from 1 to 10 indicating importance
-                <br />2. Any category left blank will be excluded from consideration
-                <br />3. When finished, click calculate!
-                <br />4. Unless specified, all categories are per game averages over a players career.</text>
+                <input class="instr-input" id="instr" type="checkbox" name="Instructions" />
+                <label class="instr-label" for="instr">Instructions ↓</label>
+                <ol class="instr-menu">
+                    <li>Input a weight from 1 to 10 indicating importance</li>
+                    <li>Any category left blank will be excluded from consideration</li>
+                    <li>When finished, click calculate!</li>
+                    <li>Unless specified, all categories are per game averages over a players career.</li>
+                </ol>
             </div>
         </div>
         <div class="form-cont">
