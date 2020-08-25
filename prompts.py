@@ -45,10 +45,10 @@ adv_stats = [
 
 adv_desc = [
      "This statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.",
-     "",
+     "A measure of shooting efficiency taken from the free throw line",
      "A measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.",
-     "Percentage of FG Attempts from 3-Point Range",
-     "Number of FT Attempts Per FG Attempt",
+     "Percentage of FG attempts from 3-Point range",
+     "Number of FT attempts per FG attempt",
      "An estimate of the percentage of available offensive rebounds a player grabbed while on the floor.",
      "An estimate of the percentage of available defensive rebounds a player grabbed while on the floor.",
      "An estimate of the percentage of teammate field goals a player assisted while on the floor.",
