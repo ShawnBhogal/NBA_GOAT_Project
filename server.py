@@ -17,7 +17,7 @@ def results():
         for i in range(0, (len(reg_stats)+len(adv_stats))):
             weight = request.form['weight'+str(i)]
             # if user entered weight for category, add it to weight dict
-            if (weight):
+            if (weight != "0"):
                 weight_dict[cat_dict[i+1]] = weight
                 # add stat name for printing purposes
                 stat_name = cat_name[cat_dict[i+1]]
@@ -29,6 +29,8 @@ def results():
             return redirect(url_for('home'))
     # calculate goat players
     results_dict = calculation(weight_dict)
+    if len(weight_dict) == 0:
+        return redirect(url_for("home"))
     # display results
     return render_template(
         'results.html', 
@@ -42,6 +44,8 @@ def results():
 # edit entry
 @app.route("/edit_entry", methods=['GET', 'POST'])
 def edit():
+    if len(weight_dict) == 0:
+        return redirect(url_for("home"))
     return render_template(
         'edit_entry.html',
         reg_len=len(reg_stats),
