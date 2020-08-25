@@ -84,13 +84,22 @@
                         <td class="stat-nested-title">{{ reg_stats[i] }}</td>
                         <td class="stat-nested-val">
                             {% if weight_dict[cat_dict[i+1]] %}
-                                <input class="slider" type="range" id={{i}} name="weight{{i}}" min="0" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
+                                <input class="slider" type="range" id="range{{i}}" name="weight{{i}}" min="0" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
                             {% else %}
-                                <input class="slider" type="range" id={{i}} name="weight{{i}}" min="0" max="10" value="0">
+                                <input class="slider" type="range" id="range{{i}}" name="weight{{i}}" min="0" max="10" value="0">
                             {% endif %}
-                            <!-- <div class="slider-val">4</div> -->
+                            <label for="range{{i}}" class="slider-val"><span id="demo"></span></label>
                         </td>
                     </tr>
+                    <script>
+                        var slide = document.getElementById("range{{i}}");
+                        var output = document.getElementById("demo");
+                        output.innerHTML = slide.value;
+                        
+                        slide.oninput = function() {
+                          output.innerHTML = this.value;
+                        }
+                    </script>
                     {% endfor %} 
                 </table>
             </div>
@@ -110,9 +119,9 @@
                         </td>
                         <td class="stat-nested-val">
                             {% if weight_dict[cat_dict[i+reg_len+1]] %}
-                                <input class="slider" type="range" id={{i+reg_len}} name="weight{{i+reg_len}}" min="0" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
+                                <input class="slider" type="range" id="range{{i+reg_len}}" name="weight{{i+reg_len}}" min="0" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
                             {% else %}
-                                <input class="slider" type="range" id={{i+reg_len}} name="weight{{i+reg_len}}" min="0" max="10" value="0">
+                                <input class="slider" type="range" id="range{{i+reg_len}}" name="weight{{i+reg_len}}" min="0" max="10" value="0">
                             {% endif %}
                         </td>
                     </tr>
