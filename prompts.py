@@ -44,25 +44,25 @@ adv_stats = [
 ]
 
 adv_desc = [
-     "    - This statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.",
+     "This statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.",
      "",
-     "    - A measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.",
-     "    - Percentage of FG Attempts from 3-Point Range",
-     "    - Number of FT Attempts Per FG Attempt",
-     "    - An estimate of the percentage of available offensive rebounds a player grabbed while on the floor.",
-     "    - An estimate of the percentage of available defensive rebounds a player grabbed while on the floor.",
-     "    - An estimate of the percentage of teammate field goals a player assisted while on the floor.",
-     "    - An estimate of the percentage of opponent possessions that end with a steal while on the floor.",
-     "    - An estimate of the percentage of opponent two-point field goal attempts blocked by while on the floor.",  
-     "    - An estimate of points produced (players, or scored teams, per 100 possessions)",
-     "    - An estimate of points allowed per 100 possessions",
-     "    - An estimate of the number of wins contributed by a player due to his offense.", 
-     "    - An estimate of the number of wins contributed by a player due to his defense.",
-     "    - An estimate of the number of wins contributed by a player per 48 minutes (league average is approximately .100)",
-     "    - A box score estimate of the offensive points per 100 possessions a player contributed above a league-average player.",
-     "    - A box score estimate of the defensive points per 100 possessions a player contributed above a league-average player.", 
-     "    - A box score estimate of the points per 100 possessions a player contributed above a league-average player.",
-     "    - An estimate of the points per 100 possessions that a player contributed above a replacement-level."
+     "A measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.",
+     "Percentage of FG Attempts from 3-Point Range",
+     "Number of FT Attempts Per FG Attempt",
+     "An estimate of the percentage of available offensive rebounds a player grabbed while on the floor.",
+     "An estimate of the percentage of available defensive rebounds a player grabbed while on the floor.",
+     "An estimate of the percentage of teammate field goals a player assisted while on the floor.",
+     "An estimate of the percentage of opponent possessions that end with a steal while on the floor.",
+     "An estimate of the percentage of opponent two-point field goal attempts blocked by while on the floor.",  
+     "An estimate of points produced (players, or scored teams, per 100 possessions)",
+     "An estimate of points allowed per 100 possessions",
+     "An estimate of the number of wins contributed by a player due to his offense.", 
+     "An estimate of the number of wins contributed by a player due to his defense.",
+     "An estimate of the number of wins contributed by a player per 48 minutes (league average is approximately .100)",
+     "A box score estimate of the offensive points per 100 possessions a player contributed above a league-average player.",
+     "A box score estimate of the defensive points per 100 possessions a player contributed above a league-average player.", 
+     "A box score estimate of the points per 100 possessions a player contributed above a league-average player.",
+     "An estimate of the points per 100 possessions that a player contributed above a replacement-level."
 ]
 
 # this is where the user will choose which stats they want to evaluate 
