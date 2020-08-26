@@ -65,39 +65,48 @@
         border-radius: 10px;
     }
     td.stat-nested-val {
+        padding-top: 5px;
+        margin-top:auto;
+        margin-bottom: auto;
+    }
+    .slider-val {
         text-align: center;
-        padding: 5px;
+        font-weight: bolder;
+        display: inline-block;
+        position: relative;
+        -webkit-text-stroke: 1.5px rgba(37, 78, 155);
+        font-size: 24px;
+        width: 5%;
+        margin-top: -6px;
     }
     .slider {
         cursor: pointer;
         -webkit-appearance: none;
         height: 20px;
-        width: 85%;
+        width: 80%;
         border-radius: 10px;
         outline: none;
         opacity: 0.8;
         -webkit-transition: .2s;
         transition: opacity .2s;
-        background: rgba(198, 22, 51, 0.767);
+        background: rgba(198, 22, 51, 0.8);
         overflow: hidden;
     }
-
     .slider:hover {
         opacity: 1;
     }
-
     .slider::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
         width: 20px;
         height: 20px;
+        border-radius: 10px;
         background: url('static/images/ball.png');
         background-position: center;
         background-size:contain;
         cursor: pointer;
-        box-shadow: -210px 0 0 200px rgba(32, 68, 136, 0.822);
+        box-shadow: -75px 0 0 65px rgba(37, 78, 155, 0.911);
     }
-
     .slider::-moz-range-thumb {
         width: 30px;
         height: 30px;
@@ -123,18 +132,27 @@
                         <td class="stat-nested-title">{{ reg_stats[i] }}</td>
                         <td class="stat-nested-val">
                             {% if weight_dict[cat_dict[i+1]] %}
-                                <input class="slider" type="range" id="range{{i}}" name="weight{{i}}" min="0" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
+                                <input class="slider" type="range" id="{{i}}" name="weight{{i}}" min="0" max="10" value="{{weight_dict[cat_dict[i+1]]}}">
                             {% else %}
-                                <input class="slider" type="range" id="range{{i}}" name="weight{{i}}" min="0" max="10" value="0">
+                                <input class="slider" type="range" id="{{i}}" name="weight{{i}}" min="0" max="10" value="0">
                             {% endif %}
-                            <label for="range{{i}}" class="slider-val"><span id="demo1"></span></label>
+                            <label for="range{{i}}" class="slider-val"><span id="demo{{i}}"></span></label>
                             <script>
-                                var slide = document.getElementById("range".concat(({{i}}).toString()));
-                                var output = document.getElementById("demo".concat((1).toString()));
-                                output.innerHTML = slide.value;
+                                var slide = document.getElementById("{{i}}");
+                                var output = document.getElementById("demo".concat({{i}}));
+                                
+                                if (slide.value != "0") {
+                                    output.innerHTML = slide.value;
+                                }
                                 
                                 slide.oninput = function() {
-                                  output.innerHTML = this.value;
+                                    var output = document.getElementById("demo".concat({{i}}));
+                                    if (this.value == "0") {
+                                        output.innerHTML = "";
+                                    }
+                                    else {
+                                        output.innerHTML = this.value;
+                                    }
                                 }
                             </script>
                         </td>
@@ -158,10 +176,29 @@
                         </td>
                         <td class="stat-nested-val">
                             {% if weight_dict[cat_dict[i+reg_len+1]] %}
-                                <input class="slider" type="range" id="range{{i+reg_len}}" name="weight{{i+reg_len}}" min="0" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
+                                <input class="slider" type="range" id="{{i+reg_len}}" name="weight{{i+reg_len}}" min="0" max="10" value="{{weight_dict[cat_dict[i+reg_len+1]]}}">
                             {% else %}
-                                <input class="slider" type="range" id="range{{i+reg_len}}" name="weight{{i+reg_len}}" min="0" max="10" value="0">
+                                <input class="slider" type="range" id="{{i+reg_len}}" name="weight{{i+reg_len}}" min="0" max="10" value="0">
                             {% endif %}
+                            <label for="range{{i+reg_len}}" class="slider-val"><span id="demo{{i+reg_len}}"></span></label>
+                            <script>
+                                var slide = document.getElementById("{{i+reg_len}}");
+                                var output = document.getElementById("demo".concat({{i+reg_len}}));
+                                
+                                if (slide.value != "0") {
+                                    output.innerHTML = slide.value;
+                                }
+                                
+                                slide.oninput = function() {
+                                    var output = document.getElementById("demo".concat({{i+reg_len}}));
+                                    if (this.value == "0") {
+                                        output.innerHTML = "";
+                                    }
+                                    else {
+                                        output.innerHTML = this.value;
+                                    }
+                                }
+                            </script>
                         </td>
                     </tr>
                     {% endfor %}
