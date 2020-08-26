@@ -27,17 +27,44 @@
                 overflow: auto;
             }
             header {
-                font-family: Basketball;
-                color: whitesmoke;
                 background-color: #00000048;
-                letter-spacing: 4px;
-                font-size: 80px;
-                padding-top: 5px; 
                 text-align: center;
-                text-shadow: 5px 2px #1b1b1b;
+                padding-bottom: 10px;
             }
-            .top_header {
+            .app-title {
+                color: whitesmoke;
+                padding-top: 5px; 
+                width: 58%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .app-title-cont {
+                margin-left: auto;
+                margin-right: 0px;
+                width: 87%;
+            }
+            .nba-logo-cont {
+                float: left;
                 text-align: center;
+                width: 13%;
+            }
+            .nba-logo-img {
+                vertical-align:middle;
+                margin:0px 0px;
+                width: 65px;
+                height: 110px;
+            }
+            .app-title-nba {
+                font-family: Basketball;
+                letter-spacing: 4px;
+                font-size: 75px;
+                text-shadow: 5px 2px #1b1b1b;
+                position: relative;
+                padding-top: 5px;
+            }
+            .app-title-slogan {
+                font-size: 16px;
+                position: relative;
             }
             .content {
                 padding-bottom: 50px;
@@ -78,10 +105,18 @@
     <div class="all">
         <header class="header">
             <div class="app-title"> 
-                <img src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png" 
-                alt="NBA_logo" 
-                width="75" height="125" 
-                style="vertical-align:middle;margin:0px 0px"> NBA GOAT Calculator
+                <div class="nba-logo-cont">
+                    <img src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png" 
+                    alt="NBA_logo" class="nba-logo-img">
+                </div>
+                <div class="app-title-cont">
+                    <div class="app-title-nba">
+                        NBA GOAT Calculator
+                    </div>
+                    <div class="app-title-slogan">
+                        Settle the argument for who is YOUR greatest basketball player of all time
+                    </div> 
+                </div>
             </div>
         </header>
         <body>

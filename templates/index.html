@@ -10,7 +10,7 @@
         text-align: center;
         color: whitesmoke;
         background-color: #00000048;
-        font-size: 23px;
+        font-size: 18px;
         font-weight: 400;
     }
     .instructions {
@@ -28,16 +28,18 @@
     }
     .instr-label {
         font-size: 18px;
+        color: rgb(22, 48, 95);
         text-align: center;
         position: relative;
         display: block;
         cursor: pointer;
     }
     .instr-label:hover {
-        color: rgb(201, 201, 201);
+        color: rgba(65, 91, 141, 0.986);
     }
     .instr-input:checked~ol.instr-menu {
         display: block;
+        color: rgb(22, 48, 95);
     }
     .calc-alert {
         text-align: center;
@@ -54,7 +56,7 @@
         position: relative;
         width: 20%;
         text-align: center;
-        padding-top: 20px;
+        padding-top: 30px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -114,15 +116,14 @@
     }
 </style>
         <div class="top-intro">
-            <div class="goat-intro">
-                Settle the argument for who is the GOAT once and for all!
-                <br/>Pick and choose which stats best suit YOUR greatest basketball player of all time.
-            </div>
+            <!-- <div class="goat-intro">
+                Settle the argument for who is YOUR greatest basketball player of all time
+            </div> -->
             <div class="instructions">
                 <input class="instr-input" id="instr" type="checkbox" name="Instructions" />
-                <label class="instr-label" for="instr">Instructions ↓</label>
+                <label class="instr-label" for="instr">+   Click for Instructions   +</label>
                 <ol class="instr-menu">
-                    <li>Use the sliders next to each stat to input a weight from 1 to 10 indicating importance</li>
+                    <li>Use the sliders next to any stat to input a weight from 1 to 10 indicating importance</li>
                     <li>Any category not picked will be excluded from calculation</li>
                     <li>Hover over advanced stats categories for descriptions</li>
                     <li>When finished, click calculate!</li>
@@ -132,9 +133,6 @@
         </div>
         <div class="form-cont">
             <form action="/results" method="post">
-                <div class="calc-button-cont">
-                    <input class="calc-button" type="submit" value="CALCULATE">
-                </div>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         <div class="calc-alert">
@@ -147,13 +145,16 @@
                 <div>
                     {% include 'stats_table.html' %}
                 </div>
+                <div class="calc-button-cont">
+                    <input class="calc-button" type="submit" value="CALCULATE">
+                </div>
             </form>
             <div>
-                <form action="/" method="get">
+                <!-- <form action="/" method="get">
                     <div class="clear-button-cont">
                         <input class="clear-button" type="submit" value="Clear Entry">
                     </div>
-                </form>
+                </form> -->
             </div>
         </div>
 {% endblock %}
