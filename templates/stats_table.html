@@ -38,14 +38,14 @@
     .stats-nested {
         border-collapse: separate;
         table-layout: auto;
-        width: 85%;
+        width: 90%;
         height: 100%;
         margin-left: auto;
         margin-right: auto;
     }
     td.stat-nested-title {
         padding: 10px;
-        width: 80%;
+        width: 65%;
     }
     .stat-hide {
         display: none;
@@ -71,12 +71,15 @@
     .slider {
         cursor: pointer;
         -webkit-appearance: none;
-        height: 8px;
-        border-radius: 3px;
+        height: 20px;
+        width: 85%;
+        border-radius: 10px;
         outline: none;
         opacity: 0.8;
         -webkit-transition: .2s;
         transition: opacity .2s;
+        background: rgba(198, 22, 51, 0.767);
+        overflow: hidden;
     }
 
     .slider:hover {
@@ -86,12 +89,13 @@
     .slider::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         background: url('static/images/ball.png');
         background-position: center;
         background-size:contain;
         cursor: pointer;
+        box-shadow: -210px 0 0 200px rgba(32, 68, 136, 0.822);
     }
 
     .slider::-moz-range-thumb {
