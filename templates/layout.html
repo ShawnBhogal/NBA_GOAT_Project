@@ -24,7 +24,6 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-attachment: fixed;
-                position: relative;
                 overflow: auto;
             }
             header {
@@ -36,6 +35,11 @@
                 padding-top: 5px; 
                 text-align: center;
                 text-shadow: 5px 2px #1b1b1b;
+                position: relative;
+                -webkit-animation-name: animatebottom;
+                -webkit-animation-duration: 1s;
+                animation-name: animatebottom;
+                animation-duration: 1s
             }
             .top_header {
                 text-align: center;
@@ -43,11 +47,29 @@
             .content {
                 padding-bottom: 50px;
                 padding-top: 15px;
+                position: relative;
+                -webkit-animation-name: animatebottom;
+                -webkit-animation-duration: 1.5s;
+                animation-name: animatebottom;
+                animation-duration: 1.5s
+            }
+            @-webkit-keyframes animatebottom {
+                from { bottom:-100px; opacity:0 } 
+                to { bottom:0px; opacity:1 }
+            }
+            @keyframes animatebottom { 
+                from{ bottom:-100px; opacity:0 } 
+                to{ bottom:0; opacity:1 }
             }
             .footer {
                 padding: 20px;
                 text-align: center;
                 color: white;
+                position: relative;
+                -webkit-animation-name: animatebottom;
+                -webkit-animation-duration: 1.5s;
+                animation-name: animatebottom;
+                animation-duration: 1.5s
             }
         </style>
     </head>
@@ -61,7 +83,6 @@
             </div>
         </header>
         <body>
-
             <div id="content" class="content">
                 {% block content %}{% endblock %}
             </div>
