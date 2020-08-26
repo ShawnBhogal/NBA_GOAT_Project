@@ -40,6 +40,17 @@
             margin: 0.4em auto;
         }
     }
+    .calc-alert {
+        text-align: center;
+        background-color:rgba(235, 186, 186, 0.692);
+        font-family: Poppins;
+        width:fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 </style>
     <div class='top_header'>
         <h3>Edit Entry</h3>
@@ -55,6 +66,15 @@
                 <div class="recalc-button-cont">
                     <input class="recalc-button" type="submit" value="Re-Calculate">
                 </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="calc-alert">
+                            {% for message in messages %}
+                                <h3 style="color:rgb(180, 16, 16)">{{ message }}</h3>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
                 <div>
                     {% include 'stats_table.html' %}
                 </div>
