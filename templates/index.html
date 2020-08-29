@@ -10,7 +10,7 @@
         text-align: center;
         color: whitesmoke;
         background-color: #00000048;
-        font-size: 23px;
+        font-size: 18px;
         font-weight: 400;
     }
     .instructions {
@@ -21,23 +21,37 @@
         margin-right: auto;
         color: whitesmoke;
         font-size: 16px;
-        padding: 10px;
+        padding-top: 25px;
     }
     .instr-input, .instr-menu {
         display: none;
     }
     .instr-label {
         font-size: 18px;
+        display:inline-block;
+        padding:0.3em;
+        border:0.1em solid rgb(22, 48, 95);
+        margin:0 0.3em 0.3em 0;
+        border-radius:0.25em;
+        box-sizing: border-box;
+        color: rgb(22, 48, 95);
+        width: 25%;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
         position: relative;
         display: block;
         cursor: pointer;
     }
     .instr-label:hover {
-        color: rgb(201, 201, 201);
+        border:0.1em solid rgba(65, 91, 141, 0.986);
+        background-color: rgba(255, 255, 255, 0.089);
+        color: rgba(65, 91, 141, 0.986);
     }
     .instr-input:checked~ol.instr-menu {
         display: block;
+        color: rgb(22, 48, 95);
     }
     .calc-alert {
         text-align: center;
@@ -50,30 +64,13 @@
         padding-left: 5px;
         padding-right: 5px;
     }
-    .clear-button-cont, .calc-button-cont {
+    .calc-button-cont {
         position: relative;
         width: 20%;
         text-align: center;
-        padding-top: 20px;
+        padding-top: 40px;
         margin-left: auto;
         margin-right: auto;
-    }
-    .clear-button{
-        display:inline-block;
-        padding:0.3em 1.2em;
-        border:0.1em solid #FFFFFF;
-        margin:0 0.3em 0.3em 0;
-        border-radius:0.12em;
-        box-sizing: border-box;
-        font-family: Poppins;
-        color:#FFFFFF;
-        background-color:#4eb5f1;
-        text-align:center;
-        transition: all 0.2s;
-        cursor: pointer;
-    }
-    .clear-button:hover{
-        background-color:#4095c6;
     }
     .calc-button {
         display:inline-block;
@@ -94,7 +91,7 @@
         cursor: pointer;
     }
     .calc-button:hover {
-        color:#04171bcc;
+        color:rgba(37, 78, 155);
         background-color:#FFFFFF;
     }
     @keyframes bouncy {
@@ -107,33 +104,30 @@
         100% { top:0em }
     }
     @media all and (max-width:30em) {
-        .calc-button, .clear-button  {
+        .calc-button {
             display: block;
             margin: 0.4em auto;
         }
     }
 </style>
         <div class="top-intro">
-            <div class="goat-intro">
-                Settle the argument for who is the GOAT once and for all!
-                <br/>Pick and choose which stats best suit YOUR greatest basketball player of all time.
-            </div>
+            <!-- <div class="goat-intro">
+                Settle the argument for who is YOUR greatest basketball player of all time
+            </div> -->
             <div class="instructions">
                 <input class="instr-input" id="instr" type="checkbox" name="Instructions" />
-                <label class="instr-label" for="instr">Instructions ↓</label>
+                <label class="instr-label" for="instr">How to Calculate</label>
                 <ol class="instr-menu">
-                    <li>Input a weight from 1 to 10 indicating importance</li>
-                    <li>Any category left blank will be excluded from consideration</li>
+                    <li>Pick and choose which stats to calculate by adjusting the slider value next to any stat</li>
+                    <li>The weighted value indicates your importance for that stat on a scale of 1 to 10</li>
+                    <li>Any category not picked will be excluded from calculation</li>
                     <li>When finished, click calculate!</li>
-                    <li>Unless specified, all categories are per game averages over a players career.</li>
+                    <li>Unless specified, all categories are per game averages over a player's career</li>
                 </ol>
             </div>
         </div>
         <div class="form-cont">
             <form action="/results" method="post">
-                <div class="calc-button-cont">
-                    <input class="calc-button" type="submit" value="CALCULATE">
-                </div>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         <div class="calc-alert">
@@ -146,13 +140,16 @@
                 <div>
                     {% include 'stats_table.html' %}
                 </div>
+                <div class="calc-button-cont">
+                    <input class="calc-button" type="submit" value="CALCULATE">
+                </div>
             </form>
             <div>
-                <form action="/" method="get">
+                <!-- <form action="/" method="get">
                     <div class="clear-button-cont">
                         <input class="clear-button" type="submit" value="Clear Entry">
                     </div>
-                </form>
+                </form> -->
             </div>
         </div>
 {% endblock %}

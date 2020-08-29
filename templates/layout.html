@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>NBA Goat App</title>
+        <title>NBA GOAT Calculator</title>
+        <link rel="icon" href="/static/images/ball.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
@@ -17,51 +18,109 @@
             :root {
                 align-items: flex-start;
                 font-family:Poppins;
-                text-align: "center";
                 background-image: url("static/images/bluered_bg.jpg");
                 background-color: rgba(255, 255, 255, 0.904);
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-attachment: fixed;
-                position: relative;
                 overflow: auto;
             }
-            header {
-                font-family: Basketball;
-                color: whitesmoke;
+            .header {
                 background-color: #00000048;
-                letter-spacing: 4px;
-                font-size: 80px;
-                padding-top: 5px; 
-                text-align: center;
-                text-shadow: 5px 1px #000000;
+                padding: 5px; 
             }
-            .top_header {
+            .app-header {
+                color: whitesmoke;
+                width: 55%;
+                margin-left: auto;
+                /* right:1%; */
+                margin-right: auto;
+                position: relative;
+            }
+            .app-title-cont {
+                margin-left: 8%;
                 text-align: center;
+            }
+            .app-logo-cont {
+                float: left;
+                text-align: center;
+                width: 8%;
+            }
+            .nba-logo-img {
+                vertical-align: middle;
+                width: 46px;
+                height: 98px;
+            }
+            .app-title-nba {
+                font-family: Basketball;
+                letter-spacing: 4px;
+                font-size: 75px;
+                text-shadow: 5px 2px #1b1b1b;
+                position: relative;
+                padding-top: 5px;
+            }
+            .app-title-slogan {
+                font-family: Basketball;
+                letter-spacing: 3px;
+                font-size: 16px;
+                position: relative;
             }
             .content {
                 padding-bottom: 50px;
                 padding-top: 15px;
+                position: relative;
+                -webkit-animation-name: animatebottom;
+                -webkit-animation-duration: 1.5s;
+                animation-name: animatebottom;
+                animation-duration: 1.5s
+            }
+            @-webkit-keyframes animatebottom {
+                from { bottom:-100px; opacity:0 } 
+                to { bottom:0px; opacity:1 }
+            }
+            @keyframes animatebottom { 
+                from{ bottom:-100px; opacity:0 } 
+                to{ bottom:0; opacity:1 }
             }
             .footer {
                 padding: 20px;
+                font-size: 14px;
                 text-align: center;
                 color: white;
+                position: relative;
+                -webkit-animation-name: animatebottom;
+                -webkit-animation-duration: 1.5s;
+                animation-name: animatebottom;
+                animation-duration: 1.5s
+            }
+            .top-intro {
+                position: relative;
+                -webkit-animation-name: animatebottom;
+                -webkit-animation-duration: 1.8s;
+                animation-name: animatebottom;
+                animation-duration: 1.8s
             }
         </style>
     </head>
     <div class="all">
         <header class="header">
-            <div class="app-title"> 
-                <img src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png" 
-                alt="NBA_logo" 
-                width="75" height="125" 
-                style="vertical-align:middle;margin:0px 0px"> NBA GOAT Calculator
+            <div class="app-header"> 
+                <div class="app-logo-cont">
+                    <img src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png" 
+                    alt="NBA_logo" class="nba-logo-img">
+                </div>
+                <div class="app-title-cont">
+                    <div class="app-title-nba">
+                        NBA GOAT Calculator
+                    </div>
+                    <div class="app-title-slogan">
+                        Who is YOUR greatest basketball player of all time?
+                    </div> 
+                </div>
             </div>
         </header>
         <body>
-
             <div id="content" class="content">
                 {% block content %}{% endblock %}
             </div>

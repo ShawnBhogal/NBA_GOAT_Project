@@ -2,6 +2,13 @@
 
 {% block content %}
 <style>
+    .results-title {
+        font-size: 34px;
+        text-align: center;
+        color: whitesmoke;
+        padding: 10px;
+        padding-bottom: 20px;
+    }
     .buttons-cont {
         text-align: center;
     }
@@ -9,7 +16,7 @@
         position: relative;
         width: 20%;
         text-align: center;
-        padding: 10px;
+        padding: 5px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -17,18 +24,29 @@
         display:inline-block;
         padding:0.3em 1.2em;
         border:0.1em solid #FFFFFF;
+        border-radius:0.25em;
         margin:0 0.3em 0.3em 0;
         box-sizing: border-box;
         font-family: Poppins;
         color:#FFFFFF;
-        background-color:#4eb5f1;
         text-align: center;
         transition: all 0.2s;
         cursor: pointer;
     }
-    .calc-new-button:hover, .edit-button:hover {
-        background-color:#4095c6;
+
+    .calc-new-button{
+        background-color:#54a3d1;
     }
+    .calc-new-button:hover {
+        background-color:#0c70aa
+    }
+    .edit-button {
+        background-color:#6e6d6dc4
+    }
+    .edit-button:hover {
+        background-color: #424242c4
+    }
+
     @media all and (max-width:30em) {
         .edit-button, .calc-new-button {
             display: block;
@@ -37,6 +55,7 @@
     }
     .results-cont {
         text-align: center;
+        padding-top: 10px;
     }
     .results {
         font-family: 'Courier New', Courier, monospace;
@@ -62,21 +81,22 @@
     }
     tr.goat {
         font-weight: bold;
-        background-color: rgb(236, 185, 138);
+        background-color: rgb(247, 212, 60);
     }
 </style>
     <div>
+        <div class="results-title">Results</div>
         <div class="buttons-cont">
-            <form action="/" method="get" name="calculate-new">
-                <div class="calc-new-button-cont">
-                    <input class="calc-new-button" type="submit" value="Calculate New Entry">
-                </div>
-            </form>  
             <form action="/edit_entry" method="post" name="edit-stats">
                 <div class="edit-button-cont">
                     <input class="edit-button" type="submit" value="Edit Entry">
                 </div>
             </form> 
+            <form action="/" method="get" name="calculate-new">
+                <div class="calc-new-button-cont">
+                    <input class="calc-new-button" type="submit" value="Calculate New Entry">
+                </div>
+            </form>  
         </div>
         <!-- <div align="center" style="margin-top: 20px;"> -->
             <!-- <text style="font-weight: bold;">Your Entry:</text> -->
@@ -85,7 +105,6 @@
             <!-- {%endfor%} -->
         <!-- </div> -->
         <div class="results-cont">
-            <h3 >Results:</h3>
             <table class="results">
                 <tr class="results-header-row">
                     <th class="results-header">
