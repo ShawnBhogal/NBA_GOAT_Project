@@ -86,4 +86,4 @@ def home():
         weight_dict=weight_dict)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='34.71.250.151', debug=True)
