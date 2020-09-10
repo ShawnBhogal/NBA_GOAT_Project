@@ -35,7 +35,6 @@ def results():
             return redirect(url_for('home'))
     # calculate goat players
     results_dict = calculation(weight_dict)
-    print(results_dict)
     if len(weight_dict) == 0:
         return redirect(url_for("home"))
     # display results
