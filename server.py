@@ -21,10 +21,6 @@ def results():
             # if user entered weight for category, add it to weight dict
             if (weight != "0"):
                 weight_dict[weight_key] = weight
-                # add stat name for printing purposes
-                stat_name = cat_name[weight_key]
-                if stat_name not in stat_names:
-                    stat_names.append(stat_name)
             else:
                 # edit entry page
                 if weight_key in weight_dict:
@@ -39,6 +35,7 @@ def results():
             return redirect(url_for('home'))
     # calculate goat players
     results_dict = calculation(weight_dict)
+    print(results_dict)
     if len(weight_dict) == 0:
         return redirect(url_for("home"))
     # display results
@@ -46,7 +43,7 @@ def results():
         'results.html', 
         len_weight=len(weight_dict),
         weight_dict=weight_dict,
-        stat_names=stat_names,
+        stat_len=len(weight_dict),
         cat_name=cat_name,
         res=results_dict)
 
@@ -86,4 +83,4 @@ def home():
         weight_dict=weight_dict)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(port=5000)

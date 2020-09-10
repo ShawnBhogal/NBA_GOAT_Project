@@ -116,9 +116,11 @@
                     <th class="results-header">
                         Final Weighted Score
                     </th>
-                    <th class="results-header">
-                        {{ ', '.join(stat_names)|safe }}
-                    </th>
+                    {% for key in res[0]['stats'] %}
+                        <th class="results-header">
+                            {{ key }}
+                        </th>
+                    {%endfor%}
                 </tr>
                 <tr class = "goat">
                     <td class="results-row">
@@ -130,9 +132,11 @@
                     <td class="results-row">
                         {{ res[0]['final'] }}
                     </td>
-                    <td class="results-row">
-                    {{ ', '.join(res[0]['stats'])|safe }}
-                    </td>
+                    {% for key in res[0]['stats'] %}
+                        <td class="results-row">
+                            {{ res[0]['stats'][key] }}
+                        </td>
+                    {%endfor%}
                 </tr>
                 {%for player in res[1:]%}
                     <tr>
@@ -145,9 +149,11 @@
                         <td class="results-row">
                             {{ player['final'] }}
                         </td>
-                        <td class="results-row">
-                            {{ ', '.join(player['stats'])|safe }}
-                        </td>
+                        {% for key in player['stats'] %}
+                            <td class="results-row">
+                                {{ player['stats'][key] }}
+                            </td>
+                        {%endfor%}
                     </tr>
                 {%endfor%}
             </table>
