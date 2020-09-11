@@ -1,5 +1,5 @@
 # NBA_GOAT_Project
-[www.nbagoatcalc.com](nbagoatcalc.com)
+[nbagoatcalc.com](nbagoatcalc.com)
 
 kobe is the goat. no arguments
 
