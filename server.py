@@ -42,7 +42,6 @@ def results():
         'results.html', 
         len_weight=len(weight_dict),
         weight_dict=weight_dict,
-        stat_len=len(weight_dict),
         cat_name=cat_name,
         res=results_dict)
 

@@ -94,8 +94,8 @@ def calculation(weight_dict):
 
         for k in row['stat_dict']:
             # stat_dict: {name: value, name2: value2}
-            stat_name = cat_name[k]
-            stats[stat_name] = str(row['stat_dict'][k])
+            # stat_name = cat_name[k]
+            stats[k] = str(row['stat_dict'][k])
 
         player_dict['stats'] = stats
 

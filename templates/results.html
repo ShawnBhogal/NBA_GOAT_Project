@@ -116,9 +116,9 @@
                     <th class="results-header">
                         Final Weighted Score
                     </th>
-                    {% for key in res[0]['stats'] %}
+                    {% for key in weight_dict %}
                         <th class="results-header">
-                            {{ key }}
+                            {{ cat_name[key] }}
                         </th>
                     {%endfor%}
                 </tr>
@@ -132,9 +132,13 @@
                     <td class="results-row">
                         {{ res[0]['final'] }}
                     </td>
-                    {% for key in res[0]['stats'] %}
+                    {% for key in weight_dict %}
                         <td class="results-row">
-                            {{ res[0]['stats'][key] }}
+                            {% if key in res[0]['stats'] %}
+                                {{ res[0]['stats'][key] }}
+                            {% else %}
+                                --
+                            {% endif %}
                         </td>
                     {%endfor%}
                 </tr>
@@ -149,9 +153,13 @@
                         <td class="results-row">
                             {{ player['final'] }}
                         </td>
-                        {% for key in player['stats'] %}
+                        {% for key in weight_dict %}
                             <td class="results-row">
-                                {{ player['stats'][key] }}
+                                {% if key in player['stats'] %}
+                                    {{ player['stats'][key] }}
+                                {% else %}
+                                    --
+                                {% endif %}
                             </td>
                         {%endfor%}
                     </tr>
