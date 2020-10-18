@@ -1,7 +1,7 @@
 # NBA_GOAT_Project
 ### [nbagoatcalc.com](nbagoatcalc.com)
 
-### Description:
+## Description:
 Inspired by the never ending discourse of who is the greatest player of all time in the NBA, this project was created as a tool for passionate sportsfans who want to settle the controversy once and for all.
 
 This website allows any user to choose from a wide variety of NBA player statistics. Depending on how much the user values each unique stat, they can choose a number from 1 (least important) to 10 (most important) to rank each statistical category.
