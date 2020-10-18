@@ -10,7 +10,7 @@ Once the user has customized rankings to their liking, they can proceed to the c
 
 If satisfied, the user can start from the beginning, or tweak a few of their choices and re-calculate until they get the results they like.
 
-Enjoy and thank you for using!
+Enjoy and thank you for visiting!
 
  -- Shawn Bhogal and Pragathi Shankar 
 
