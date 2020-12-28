@@ -13,6 +13,9 @@ If satisfied, the user can start from the beginning, or tweak a few of their cho
 Enjoy and thank you for visiting!
 
  -- Shawn Bhogal and Pragathi Shankar 
+ 
+## Screenshots: 
+![alt text](static/images/Screenshot_1.JPG)
 
 
 ## In order to run program:
@@ -25,8 +28,8 @@ Enjoy and thank you for visiting!
 ## For GCP VM:
 To start
 ```
-$ sudo nohup python3 server.py &
-```
+$ sudo nohup python3 server.py
+
 To stop
 ```
 $ ps -ef | grep server.py
